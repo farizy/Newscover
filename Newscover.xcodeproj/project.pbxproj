@@ -71,13 +71,93 @@
 			isa = PBXGroup;
 			children = (
 				2FFD08A11FB03C1E006AE606 /* AppDelegate.swift */,
-				2FFD08A31FB03C1E006AE606 /* ViewController.swift */,
-				2FFD08A51FB03C1E006AE606 /* Main.storyboard */,
-				2FFD08A81FB03C1E006AE606 /* Assets.xcassets */,
-				2FFD08AA1FB03C1E006AE606 /* LaunchScreen.storyboard */,
 				2FFD08AD1FB03C1E006AE606 /* Info.plist */,
+				2FFD08B71FB04251006AE606 /* Views */,
+				2FFD08B51FB04223006AE606 /* ViewModel */,
+				2FFD08B41FB041EB006AE606 /* Models */,
+				2FFD08BC1FB044AD006AE606 /* Storyboards */,
+				2FFD08BB1FB042F8006AE606 /* Networkings */,
+				2FFD08BA1FB0428E006AE606 /* Protocols */,
+				2FFD08B91FB0426C006AE606 /* Resources */,
+				2FFD08B81FB0425E006AE606 /* Extension */,
 			);
 			path = Newscover;
+			sourceTree = "<group>";
+		};
+		2FFD08B41FB041EB006AE606 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2FFD08B51FB04223006AE606 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FFD08B71FB04251006AE606 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD08BE1FB044F1006AE606 /* Cell */,
+				2FFD08BD1FB044E1006AE606 /* ViewControllers */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2FFD08B81FB0425E006AE606 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		2FFD08B91FB0426C006AE606 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD08A81FB03C1E006AE606 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2FFD08BA1FB0428E006AE606 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2FFD08BB1FB042F8006AE606 /* Networkings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networkings;
+			sourceTree = "<group>";
+		};
+		2FFD08BC1FB044AD006AE606 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD08A51FB03C1E006AE606 /* Main.storyboard */,
+				2FFD08AA1FB03C1E006AE606 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2FFD08BD1FB044E1006AE606 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD08A31FB03C1E006AE606 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2FFD08BE1FB044F1006AE606 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		8608916A0947AB55DA29B520 /* Frameworks */ = {
@@ -381,6 +461,7 @@
 				2FFD08B21FB03C1E006AE606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
