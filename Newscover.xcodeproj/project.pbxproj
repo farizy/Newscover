@@ -12,6 +12,7 @@
 		2FFD08A71FB03C1E006AE606 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD08A51FB03C1E006AE606 /* Main.storyboard */; };
 		2FFD08A91FB03C1E006AE606 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD08A81FB03C1E006AE606 /* Assets.xcassets */; };
 		2FFD08AC1FB03C1E006AE606 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD08AA1FB03C1E006AE606 /* LaunchScreen.storyboard */; };
+		99EF6C59E7B5E9052C390EB8 /* Pods_Newscover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9836F03BA213A180636E3AFE /* Pods_Newscover.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		2FFD08A81FB03C1E006AE606 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFD08AB1FB03C1E006AE606 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FFD08AD1FB03C1E006AE606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9836F03BA213A180636E3AFE /* Pods_Newscover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Newscover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newscover.release.xcconfig"; path = "Pods/Target Support Files/Pods-Newscover/Pods-Newscover.release.xcconfig"; sourceTree = "<group>"; };
+		D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newscover.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Newscover/Pods-Newscover.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EF6C59E7B5E9052C390EB8 /* Pods_Newscover.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0822B45424C990A40C2FD667 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */,
+				B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2FFD08951FB03C1D006AE606 = {
 			isa = PBXGroup;
 			children = (
 				2FFD08A01FB03C1E006AE606 /* Newscover */,
 				2FFD089F1FB03C1E006AE606 /* Products */,
+				0822B45424C990A40C2FD667 /* Pods */,
+				8608916A0947AB55DA29B520 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = Newscover;
 			sourceTree = "<group>";
 		};
+		8608916A0947AB55DA29B520 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9836F03BA213A180636E3AFE /* Pods_Newscover.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FFD08B01FB03C1E006AE606 /* Build configuration list for PBXNativeTarget "Newscover" */;
 			buildPhases = (
+				402D628BD8AF851B70A6C4C2 /* [CP] Check Pods Manifest.lock */,
 				2FFD089A1FB03C1E006AE606 /* Sources */,
 				2FFD089B1FB03C1E006AE606 /* Frameworks */,
 				2FFD089C1FB03C1E006AE606 /* Resources */,
+				E4E2A900FD364FE747B35D9D /* [CP] Embed Pods Frameworks */,
+				AC0A84C091F895416F20DB65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		402D628BD8AF851B70A6C4C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AC0A84C091F895416F20DB65 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Newscover/Pods-Newscover-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4E2A900FD364FE747B35D9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Newscover/Pods-Newscover-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FFD089A1FB03C1E006AE606 /* Sources */ = {
@@ -259,10 +334,12 @@
 		};
 		2FFD08B11FB03C1E006AE606 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L7E5EUN258;
 				INFOPLIST_FILE = Newscover/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeid.Newscover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,10 +349,12 @@
 		};
 		2FFD08B21FB03C1E006AE606 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = L7E5EUN258;
 				INFOPLIST_FILE = Newscover/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeid.Newscover;
 				PRODUCT_NAME = "$(TARGET_NAME)";
