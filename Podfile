@@ -10,4 +10,6 @@ target 'Newscover' do
 	pod 'AlamofireImage'
 	pod 'RxSwift'
 	pod 'RxCocoa'
+    pod 'RxAlamofire'
+    
 end
