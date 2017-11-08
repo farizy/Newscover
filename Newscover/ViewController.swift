@@ -27,13 +27,23 @@ class ViewController: UIViewController {
     }
     func bindArticles() {
         viewModel.articles
-                    .asObservable()
-                    .subscribe(onNext: { [weak self](articles) in
-                        self?.textLabel.text = articles.first?.title
-                    },
-                    onError: nil,
-                    onCompleted: nil,
-                    onDisposed: nil)
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self](articles) in
+                self?.textLabel.text = articles.first?.title
+                })
+            .addDisposableTo(disposeBag)
+        
+        viewModel.errorObserver
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (errorMesage) in
+                let alert = UIAlertController(title: nil, message: errorMesage, preferredStyle: UIAlertControllerStyle.alert)
+                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alert.addAction(noAction)
+                self?.present(alert, animated: true, completion: nil)
+            })
+            .addDisposableTo(disposeBag)
     }
 }
 
