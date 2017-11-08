@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AED93E2D6A00AF1BECD164E829568AFC'
-               BlueprintName = 'RxCocoa'
+               BlueprintIdentifier = '8727C23B9DD0F21B7101C2E5B97AFD3F'
+               BlueprintName = 'TRMosaicLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RxCocoa.framework'>
+               BuildableName = 'TRMosaicLayout.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

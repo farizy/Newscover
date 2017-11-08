@@ -16,6 +16,7 @@ PODS:
     - RxSwift (~> 3.6)
   - RxSwift (3.6.1)
   - SwiftyJSON (3.1.4)
+  - TRMosaicLayout (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - SwiftyJSON
+  - TRMosaicLayout
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -34,7 +36,8 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: 0d1213ae25508ee6806c316e72784dfec48ce7fe
+PODFILE CHECKSUM: 25c9ba2e68a99c1217047c917b8f2f2a7376a13d
 
 COCOAPODS: 1.2.1
