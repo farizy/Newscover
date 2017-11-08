@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29B33B281FB2BA5D005984EC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B33B271FB2BA5D005984EC /* ViewModel.swift */; };
 		29F2CD281FB04A49004FB2FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD271FB04A49004FB2FF /* Article.swift */; };
 		29F2CD2A1FB04CAE004FB2FF /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD291FB04CAE004FB2FF /* Source.swift */; };
 		29F2CD2C1FB06249004FB2FF /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD2B1FB06249004FB2FF /* APIServices.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29B33B271FB2BA5D005984EC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		29F2CD271FB04A49004FB2FF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		29F2CD291FB04CAE004FB2FF /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		29F2CD2B1FB06249004FB2FF /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 				2FFD08A11FB03C1E006AE606 /* AppDelegate.swift */,
 				2FFD08AD1FB03C1E006AE606 /* Info.plist */,
 				2FFD08B71FB04251006AE606 /* Views */,
-				2FFD08B51FB04223006AE606 /* ViewModel */,
+				2FFD08B51FB04223006AE606 /* ViewModels */,
 				2FFD08B41FB041EB006AE606 /* Models */,
 				2FFD08BC1FB044AD006AE606 /* Storyboards */,
 				2FFD08BB1FB042F8006AE606 /* Networkings */,
@@ -99,11 +101,12 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		2FFD08B51FB04223006AE606 /* ViewModel */ = {
+		2FFD08B51FB04223006AE606 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				29B33B271FB2BA5D005984EC /* ViewModel.swift */,
 			);
-			name = ViewModel;
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		2FFD08B71FB04251006AE606 /* Views */ = {
@@ -305,6 +308,7 @@
 				2FFD08A41FB03C1E006AE606 /* ViewController.swift in Sources */,
 				2FFD08A21FB03C1E006AE606 /* AppDelegate.swift in Sources */,
 				29F2CD281FB04A49004FB2FF /* Article.swift in Sources */,
+				29B33B281FB2BA5D005984EC /* ViewModel.swift in Sources */,
 				29F2CD2C1FB06249004FB2FF /* APIServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
