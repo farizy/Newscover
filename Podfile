@@ -11,5 +11,6 @@ target 'Newscover' do
 	pod 'RxSwift'
 	pod 'RxCocoa'
     pod 'RxAlamofire'
+    pod 'Reusable'
     
 end
