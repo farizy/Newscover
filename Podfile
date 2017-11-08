@@ -12,5 +12,6 @@ target 'Newscover' do
 	pod 'RxCocoa'
     pod 'RxAlamofire'
     pod 'Reusable'
+    pod 'TRMosaicLayout'
     
 end
