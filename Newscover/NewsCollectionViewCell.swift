@@ -8,6 +8,7 @@
 
 import UIKit
 import Reusable
+import AlamofireImage
 
 internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
     
@@ -19,7 +20,9 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func configureCell(data: Article){
         self.data = data
-        
+        newsAuthorLabel.text = data.author
+        titleLabel.text = data.title
+        imageCell.af_setImage(withURL: data.urlToImage)
         
     }
     

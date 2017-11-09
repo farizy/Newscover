@@ -27,36 +27,34 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBl-65-gym">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="norwegianwood" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Mo-sDI">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Mo-sDI">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS AUTHOR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvO-pO-ZEQ">
-                                <rect key="frame" x="5" y="5" width="140" height="16.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <rect key="frame" x="5" y="5" width="140" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title/Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-dW-xkl">
-                                <rect key="frame" x="3" y="181.5" width="144" height="15.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title/Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-dW-xkl">
+                                <rect key="frame" x="6" y="179.5" width="138" height="17.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="IvO-pO-ZEQ" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="5" id="BDZ-xj-uj4"/>
-                            <constraint firstItem="64x-dW-xkl" firstAttribute="centerX" secondItem="cBl-65-gym" secondAttribute="centerX" id="DTY-C4-zeA"/>
                             <constraint firstItem="IvO-pO-ZEQ" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" constant="5" id="GPE-xD-ihx"/>
-                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="width" secondItem="cBl-65-gym" secondAttribute="width" id="QQy-37-LCE"/>
                             <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="IvO-pO-ZEQ" secondAttribute="trailing" constant="5" id="TCM-VA-fRz"/>
                             <constraint firstItem="84L-JS-7vP" firstAttribute="bottom" secondItem="64x-dW-xkl" secondAttribute="bottom" constant="3" id="TUq-3R-zfR"/>
-                            <constraint firstItem="IvO-pO-ZEQ" firstAttribute="centerX" secondItem="cBl-65-gym" secondAttribute="centerX" id="W0D-cT-Rme"/>
-                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="64x-dW-xkl" secondAttribute="trailing" constant="3" id="XMH-e6-PmJ"/>
-                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="centerX" secondItem="84L-JS-7vP" secondAttribute="centerX" id="fRL-Cl-4Kl"/>
-                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" id="n12-RJ-6FC"/>
-                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="height" secondItem="cBl-65-gym" secondAttribute="height" id="oNN-gu-L5z"/>
-                            <constraint firstItem="64x-dW-xkl" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="3" id="qht-QI-fMg"/>
-                            <constraint firstItem="64x-dW-xkl" firstAttribute="top" secondItem="IvO-pO-ZEQ" secondAttribute="bottom" constant="160" id="wq3-js-oUe"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="64x-dW-xkl" secondAttribute="trailing" constant="6" id="XMH-e6-PmJ"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" id="ZfA-Id-0BL"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="bottom" secondItem="84L-JS-7vP" secondAttribute="bottom" id="dGk-WX-dV0"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="trailing" secondItem="84L-JS-7vP" secondAttribute="trailing" id="gGg-my-4nV"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" id="hU9-LG-Kks"/>
+                            <constraint firstItem="64x-dW-xkl" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="6" id="qht-QI-fMg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="84L-JS-7vP"/>
                     </view>
@@ -78,7 +76,4 @@
             <point key="canvasLocation" x="-7" y="497"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="norwegianwood" width="400" height="618"/>
-    </resources>
 </document>
