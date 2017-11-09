@@ -11,7 +11,10 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueExtras.ttc">
+            <string>HelveticaNeue-CondensedBold</string>
         </array>
     </customFonts>
     <objects>
@@ -33,13 +36,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS AUTHOR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvO-pO-ZEQ">
                                 <rect key="frame" x="5" y="5" width="140" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title/Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-dW-xkl">
-                                <rect key="frame" x="6" y="179.5" width="138" height="17.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <rect key="frame" x="10" y="174.5" width="130" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -48,13 +51,13 @@
                             <constraint firstItem="IvO-pO-ZEQ" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="5" id="BDZ-xj-uj4"/>
                             <constraint firstItem="IvO-pO-ZEQ" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" constant="5" id="GPE-xD-ihx"/>
                             <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="IvO-pO-ZEQ" secondAttribute="trailing" constant="5" id="TCM-VA-fRz"/>
-                            <constraint firstItem="84L-JS-7vP" firstAttribute="bottom" secondItem="64x-dW-xkl" secondAttribute="bottom" constant="3" id="TUq-3R-zfR"/>
-                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="64x-dW-xkl" secondAttribute="trailing" constant="6" id="XMH-e6-PmJ"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="bottom" secondItem="64x-dW-xkl" secondAttribute="bottom" constant="10" id="TUq-3R-zfR"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="64x-dW-xkl" secondAttribute="trailing" constant="10" id="XMH-e6-PmJ"/>
                             <constraint firstItem="pk1-Mo-sDI" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" id="ZfA-Id-0BL"/>
                             <constraint firstItem="pk1-Mo-sDI" firstAttribute="bottom" secondItem="84L-JS-7vP" secondAttribute="bottom" id="dGk-WX-dV0"/>
                             <constraint firstItem="pk1-Mo-sDI" firstAttribute="trailing" secondItem="84L-JS-7vP" secondAttribute="trailing" id="gGg-my-4nV"/>
                             <constraint firstItem="pk1-Mo-sDI" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" id="hU9-LG-Kks"/>
-                            <constraint firstItem="64x-dW-xkl" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="6" id="qht-QI-fMg"/>
+                            <constraint firstItem="64x-dW-xkl" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="10" id="qht-QI-fMg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="84L-JS-7vP"/>
                     </view>

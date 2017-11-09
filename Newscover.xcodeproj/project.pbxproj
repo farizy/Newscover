@@ -236,7 +236,7 @@
 				TargetAttributes = {
 					2FFD089D1FB03C1E006AE606 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = Q3EM23MFA9;
+						DevelopmentTeam = L7E5EUN258;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -461,7 +461,7 @@
 			baseConfigurationReference = D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q3EM23MFA9;
+				DEVELOPMENT_TEAM = L7E5EUN258;
 				INFOPLIST_FILE = Newscover/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -476,7 +476,7 @@
 			baseConfigurationReference = B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q3EM23MFA9;
+				DEVELOPMENT_TEAM = L7E5EUN258;
 				INFOPLIST_FILE = Newscover/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

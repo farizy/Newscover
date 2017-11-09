@@ -21,30 +21,31 @@ class NewsCollectionViewController: UICollectionViewController {
     let books = ["norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood"] //, "norwegianwood2", "windupbird", "windupbird2", "running"]
     
     @IBOutlet var newsCollectionView: UICollectionView!
-    
-//    init(viewModel: NewsCollectionViewModel){
-//        super.init(nibName: "NewsCollectionViewCell", bundle: nil)
-//        self.viewModel = viewModel
-//    }
-////
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        //fatalError("init(coder:) has not been implemented")
-//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(cellType: NewsCollectionViewCell.self)
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
-        self.navigationController?.navigationItem.title = "Discover"
+        self.title = "Discover"
         mosaicLayout.delegate = self
+        //makeCorner(withRadius: 10)
         viewModel.getArticle()
         configureViewModelObserver()
+        
+        self.view.layer.cornerRadius = self.view.frame.size.width / 2
+        self.view.layer.masksToBounds = true
+        self.view.layer.isOpaque = false
+        self.view.clipsToBounds = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func makeCorner(withRadius radius: CGFloat){
+        
     }
 
     func configureViewModelObserver(){
@@ -64,8 +65,6 @@ class NewsCollectionViewController: UICollectionViewController {
                 let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(noAction)
                 self?.present(alert, animated: true, completion: nil)
-                
-                
         })
         .addDisposableTo(disposeBag)
     }
@@ -74,7 +73,6 @@ class NewsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         let item = viewModel.articles.value.count
-            
         return item
     }
 
@@ -83,19 +81,8 @@ class NewsCollectionViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         let items = viewModel.articles.value
-        
         let item = items[indexPath.row]
         cell.configureCell(data: item)
-//            let images = self.books[indexPath.item]
-//            let imageView = UIImageView()
-//            let image: UIImage = UIImage(named: images)!
-//            imageView.image = image
-//        imageView.frame = cell.frame
-//        cell.contentView.addSubview(imageView)
-    
-        
-        // Configure the cell
-    
         return cell
     }
 
@@ -115,12 +102,11 @@ extension NewsCollectionViewController: TRMosaicLayoutDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 3, left: 2, bottom: 3, right: 3)
     }
     
     func heightForSmallMosaicCell() -> CGFloat {
         return 150
     }
-    
     
 }
