@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2962E6FD1FB4036D007A20A8 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */; };
+		2962E6FF1FB435E2007A20A8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962E6FE1FB435E2007A20A8 /* DetailViewController.swift */; };
 		29B33B281FB2BA5D005984EC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B33B271FB2BA5D005984EC /* ViewModel.swift */; };
 		29F2CD281FB04A49004FB2FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD271FB04A49004FB2FF /* Article.swift */; };
 		29F2CD2A1FB04CAE004FB2FF /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD291FB04CAE004FB2FF /* Source.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
+		2962E6FE1FB435E2007A20A8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		29B33B271FB2BA5D005984EC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		29F2CD271FB04A49004FB2FF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		29F2CD291FB04CAE004FB2FF /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		2FFD08BD1FB044E1006AE606 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2962E6FE1FB435E2007A20A8 /* DetailViewController.swift */,
 				2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */,
 				2FFD08A31FB03C1E006AE606 /* ViewController.swift */,
 				2FF9BFBA1FB2FD3500E9A467 /* NewsCollectionViewController.swift */,
@@ -230,7 +233,7 @@
 				TargetAttributes = {
 					2FFD089D1FB03C1E006AE606 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = L7E5EUN258;
+						DevelopmentTeam = Q3EM23MFA9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -328,6 +331,7 @@
 				2F0D09C31FB404B800B627B0 /* NewsCollectionViewCell.swift in Sources */,
 				29F2CD281FB04A49004FB2FF /* Article.swift in Sources */,
 				2FF9BFBB1FB2FD3500E9A467 /* NewsCollectionViewController.swift in Sources */,
+				2962E6FF1FB435E2007A20A8 /* DetailViewController.swift in Sources */,
 				29B33B281FB2BA5D005984EC /* ViewModel.swift in Sources */,
 				29F2CD2C1FB06249004FB2FF /* APIServices.swift in Sources */,
 			);
@@ -453,7 +457,7 @@
 			baseConfigurationReference = D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L7E5EUN258;
+				DEVELOPMENT_TEAM = Q3EM23MFA9;
 				INFOPLIST_FILE = Newscover/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -468,7 +472,7 @@
 			baseConfigurationReference = B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = L7E5EUN258;
+				DEVELOPMENT_TEAM = Q3EM23MFA9;
 				INFOPLIST_FILE = Newscover/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

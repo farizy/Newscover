@@ -11,29 +11,24 @@ import UIKit
 class GestureViewController: UIViewController {
 
     @IBOutlet weak var gestureImageView: UIImageView!
-    let tap = UITapGestureRecognizer(target: self, action: #selector(tapImage))
-    let swipeLeft:UISwipeGestureRecognizer = {
-        let swipeleft = UISwipeGestureRecognizer(target: self, action: #selector(swipeImage(_:)))
-        swipeleft.direction = UISwipeGestureRecognizerDirection.left
-
-        return swipeleft
-    }()//UISwipeGestureRecognizer(target: self, action: #selector(swipeImage))
-
-    let swipeUp:UISwipeGestureRecognizer = {
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeImage(_:)))
-        swipeUp.direction = UISwipeGestureRecognizerDirection.up
-        
-        return swipeUp
-    }()
+    let book = [#imageLiteral(resourceName: "norwegianwood"), #imageLiteral(resourceName: "norwegianwood2"), #imageLiteral(resourceName: "running"), #imageLiteral(resourceName: "windupbird"), #imageLiteral(resourceName: "windupbird2") ]
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gestureImageView.isUserInteractionEnabled = true
-//        swipeLeft.delegate = self
-//        swipeUp.delegate = self
-//        gestureImageView.addGestureRecognizer(tap)
-        gestureImageView.addGestureRecognizer(swipeLeft)
+        gestureImageView.image = book[index]
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapImage(_:)))
+        gestureImageView.addGestureRecognizer(tap)
+        
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeImage(_:)))
+        swipeUp.direction = UISwipeGestureRecognizerDirection.up
         gestureImageView.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipeImage(_:)))
+        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        gestureImageView.addGestureRecognizer(swipeDown)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,44 +37,37 @@ class GestureViewController: UIViewController {
     }
     
     func tapImage(_ sender: UIGestureRecognizer) {
-//        print("tapped")
-    
-        let asu = sender.location(in: gestureImageView)
-        let alert = UIAlertController(title: nil, message: "tapped @ \(asu.x),\(asu.y)", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        alert.addAction(action)
+        let widthArea = self.view.bounds.width / 3
+        let xTap = sender.location(in: gestureImageView).x
+        if xTap < widthArea{
+            index -= 1
+        }else{
+            index += 1
+        }
         
-        self.present(alert, animated: true, completion: nil)
+        if index < 0 { index = 0 }
+        if index > book.count-1 { index = book.count-1}
+
+        gestureImageView.image = book[index]
     }
     
     func swipeImage(_ gesture: UIGestureRecognizer) {
         
         guard let gesture = gesture as? UISwipeGestureRecognizer else { return }
-        if gesture.direction == UISwipeGestureRecognizerDirection.right {
-            print("Swipe Right")
-        }
-        else if gesture.direction == UISwipeGestureRecognizerDirection.left {
-            print("Swipe Left")
-        }
-        else if gesture.direction == UISwipeGestureRecognizerDirection.up {
-            print("Swipe Up")
+        
+        if gesture.direction == UISwipeGestureRecognizerDirection.up {
+            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as? DetailViewController else { return }
+            self.present(vc, animated: true, completion: nil)
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.down {
             print("Swipe Down")
+            
+            let alert = UIAlertController(title: nil, message: "Swipe Down", preferredStyle: UIAlertControllerStyle.alert)
+            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+            alert.addAction(action)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-}
-
-extension GestureViewController: UIGestureRecognizerDelegate{
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        
-        return true
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
-        return true
-    }
 }
