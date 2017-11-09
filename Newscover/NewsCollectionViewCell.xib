@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewsCollectionViewCell" id="NN7-Z3-9Yo" customClass="NewsCollectionViewCell" customModule="Newscover" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBl-65-gym">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="norwegianwood" translatesAutoresizingMaskIntoConstraints="NO" id="pk1-Mo-sDI">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS AUTHOR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvO-pO-ZEQ">
+                                <rect key="frame" x="5" y="5" width="140" height="16.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Title/Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64x-dW-xkl">
+                                <rect key="frame" x="3" y="181.5" width="144" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IvO-pO-ZEQ" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="5" id="BDZ-xj-uj4"/>
+                            <constraint firstItem="64x-dW-xkl" firstAttribute="centerX" secondItem="cBl-65-gym" secondAttribute="centerX" id="DTY-C4-zeA"/>
+                            <constraint firstItem="IvO-pO-ZEQ" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" constant="5" id="GPE-xD-ihx"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="width" secondItem="cBl-65-gym" secondAttribute="width" id="QQy-37-LCE"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="IvO-pO-ZEQ" secondAttribute="trailing" constant="5" id="TCM-VA-fRz"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="bottom" secondItem="64x-dW-xkl" secondAttribute="bottom" constant="3" id="TUq-3R-zfR"/>
+                            <constraint firstItem="IvO-pO-ZEQ" firstAttribute="centerX" secondItem="cBl-65-gym" secondAttribute="centerX" id="W0D-cT-Rme"/>
+                            <constraint firstItem="84L-JS-7vP" firstAttribute="trailing" secondItem="64x-dW-xkl" secondAttribute="trailing" constant="3" id="XMH-e6-PmJ"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="centerX" secondItem="84L-JS-7vP" secondAttribute="centerX" id="fRL-Cl-4Kl"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="top" secondItem="84L-JS-7vP" secondAttribute="top" id="n12-RJ-6FC"/>
+                            <constraint firstItem="pk1-Mo-sDI" firstAttribute="height" secondItem="cBl-65-gym" secondAttribute="height" id="oNN-gu-L5z"/>
+                            <constraint firstItem="64x-dW-xkl" firstAttribute="leading" secondItem="84L-JS-7vP" secondAttribute="leading" constant="3" id="qht-QI-fMg"/>
+                            <constraint firstItem="64x-dW-xkl" firstAttribute="top" secondItem="IvO-pO-ZEQ" secondAttribute="bottom" constant="160" id="wq3-js-oUe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="84L-JS-7vP"/>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="cBl-65-gym" firstAttribute="top" secondItem="NN7-Z3-9Yo" secondAttribute="top" id="8Mi-VU-ga1"/>
+                <constraint firstItem="cBl-65-gym" firstAttribute="trailing" secondItem="xXe-Oz-CcF" secondAttribute="trailing" id="Psz-4o-OSv"/>
+                <constraint firstItem="cBl-65-gym" firstAttribute="centerX" secondItem="xXe-Oz-CcF" secondAttribute="centerX" id="gwH-0R-Hqs"/>
+                <constraint firstItem="xXe-Oz-CcF" firstAttribute="leading" secondItem="cBl-65-gym" secondAttribute="leading" id="krg-Tg-1oV"/>
+                <constraint firstItem="cBl-65-gym" firstAttribute="centerY" secondItem="xXe-Oz-CcF" secondAttribute="centerY" id="un4-mi-ILw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="xXe-Oz-CcF"/>
+            <connections>
+                <outlet property="imageCell" destination="pk1-Mo-sDI" id="IgF-qU-8ag"/>
+                <outlet property="newsAuthorLabel" destination="IvO-pO-ZEQ" id="hp7-Tx-mgV"/>
+                <outlet property="titleLabel" destination="64x-dW-xkl" id="keO-ym-FwT"/>
+            </connections>
+            <point key="canvasLocation" x="-7" y="497"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="norwegianwood" width="400" height="618"/>
+    </resources>
+</document>
