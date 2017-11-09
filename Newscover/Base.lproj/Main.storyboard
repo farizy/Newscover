@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V3m-l9-5Uo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -69,6 +69,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Gesture View Controller-->
+        <scene sceneID="UF0-jl-hB5">
+            <objects>
+                <viewController id="V3m-l9-5Uo" customClass="GestureViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zOo-AS-4vF"/>
+                        <viewControllerLayoutGuide type="bottom" id="p3z-Pr-aW2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6WW-Mn-tjz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQL-AM-C6L">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aQL-AM-C6L" firstAttribute="top" secondItem="zOo-AS-4vF" secondAttribute="bottom" id="B1I-IN-vTF"/>
+                            <constraint firstItem="aQL-AM-C6L" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leading" id="DVb-K4-sWd"/>
+                            <constraint firstItem="p3z-Pr-aW2" firstAttribute="top" secondItem="aQL-AM-C6L" secondAttribute="bottom" id="FuW-ep-11n"/>
+                            <constraint firstAttribute="trailing" secondItem="aQL-AM-C6L" secondAttribute="trailing" id="Zcq-Vt-WYo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gestureImageView" destination="aQL-AM-C6L" id="quO-ad-imX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVw-fr-fEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1522" y="34"/>
         </scene>
     </scenes>
 </document>
