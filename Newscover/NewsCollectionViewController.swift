@@ -33,19 +33,12 @@ class NewsCollectionViewController: UICollectionViewController {
         viewModel.getArticle()
         configureViewModelObserver()
         
-        self.view.layer.cornerRadius = self.view.frame.size.width / 2
-        self.view.layer.masksToBounds = true
-        self.view.layer.isOpaque = false
-        self.view.clipsToBounds = false
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func makeCorner(withRadius radius: CGFloat){
-        
     }
 
     func configureViewModelObserver(){

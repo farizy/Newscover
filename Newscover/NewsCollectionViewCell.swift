@@ -24,7 +24,21 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         titleLabel.text = data.title
         
         imageCell.af_setImage(withURL: data.urlToImage)
-        
+
+        shadowedFont()
     }
     
+    func shadowedFont(){
+        newsAuthorLabel.layer.shadowColor = UIColor.black.cgColor
+        newsAuthorLabel.layer.shadowOffset = CGSize(width: 4, height: 4)
+        newsAuthorLabel.layer.shadowRadius = 3.0
+        newsAuthorLabel.layer.shadowOpacity = 1.0
+        newsAuthorLabel.layer.masksToBounds = false
+        
+        titleLabel.layer.shadowColor = UIColor.black.cgColor
+        titleLabel.layer.shadowOffset = CGSize(width: 3, height: 3)
+        titleLabel.layer.shadowRadius = 1.0
+        titleLabel.layer.shadowOpacity = 5.0
+        titleLabel.layer.masksToBounds = false
+    }
 }
