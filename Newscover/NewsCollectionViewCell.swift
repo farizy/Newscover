@@ -22,6 +22,7 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         self.data = data
         newsAuthorLabel.text = data.author
         titleLabel.text = data.title
+        
         imageCell.af_setImage(withURL: data.urlToImage)
         
     }
