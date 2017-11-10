@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class GestureViewController: UIViewController {
-
     @IBOutlet weak var gestureImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+
+    let viewModel = GestureViewModel()
+    let disposableBag = DisposeBag()
+    
     let book = [#imageLiteral(resourceName: "norwegianwood"), #imageLiteral(resourceName: "norwegianwood2"), #imageLiteral(resourceName: "running"), #imageLiteral(resourceName: "windupbird"), #imageLiteral(resourceName: "windupbird2") ]
     var index: Int = 0
     
@@ -34,6 +40,11 @@ class GestureViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func setArticle(article: Article)  {
+        titleLabel.text = article.title
+        descriptionLabel.text = article.description
+        gestureImageView.af_setImage(withURL: article.urlToImage)
     }
     
     func tapImage(_ sender: UIGestureRecognizer) {
