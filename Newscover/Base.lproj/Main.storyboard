@@ -84,21 +84,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="norwegianwood" translatesAutoresizingMaskIntoConstraints="NO" id="aQL-AM-C6L">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aQL-AM-C6L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9j-wJ-hwu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9j-wJ-hwu">
                                 <rect key="frame" x="16" y="20" width="343" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yft-cV-4ih">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yft-cV-4ih">
                                 <rect key="frame" x="16" y="627" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0lS-5z-gOk">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -107,16 +111,19 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Yft-cV-4ih" secondAttribute="trailing" id="BNS-QY-sKC"/>
                             <constraint firstItem="aQL-AM-C6L" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leading" id="DVb-K4-sWd"/>
                             <constraint firstItem="p3z-Pr-aW2" firstAttribute="top" secondItem="aQL-AM-C6L" secondAttribute="bottom" id="FuW-ep-11n"/>
+                            <constraint firstItem="0lS-5z-gOk" firstAttribute="centerX" secondItem="6WW-Mn-tjz" secondAttribute="centerX" id="It6-iE-lwk"/>
                             <constraint firstAttribute="trailing" secondItem="aQL-AM-C6L" secondAttribute="trailing" id="Zcq-Vt-WYo"/>
                             <constraint firstItem="c9j-wJ-hwu" firstAttribute="top" secondItem="zOo-AS-4vF" secondAttribute="bottom" id="gAu-dk-yh5"/>
                             <constraint firstItem="Yft-cV-4ih" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leadingMargin" id="hkc-P3-OdD"/>
                             <constraint firstItem="c9j-wJ-hwu" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leadingMargin" id="n6H-mA-m2i"/>
+                            <constraint firstItem="0lS-5z-gOk" firstAttribute="centerY" secondItem="6WW-Mn-tjz" secondAttribute="centerY" id="nZh-3E-b10"/>
                             <constraint firstItem="p3z-Pr-aW2" firstAttribute="top" secondItem="Yft-cV-4ih" secondAttribute="bottom" constant="16" id="rdd-sd-0Z0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="Yft-cV-4ih" id="4BM-fQ-QB1"/>
                         <outlet property="gestureImageView" destination="aQL-AM-C6L" id="quO-ad-imX"/>
+                        <outlet property="loadingActivityIndicatorView" destination="0lS-5z-gOk" id="1ki-zE-c9O"/>
                         <outlet property="titleLabel" destination="c9j-wJ-hwu" id="8dp-ho-YhP"/>
                     </connections>
                 </viewController>
@@ -136,6 +143,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-IJ-JOw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgb-iw-E2k">
                                 <rect key="frame" x="303" y="20" width="64" height="64"/>
                                 <constraints>
@@ -151,17 +162,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6bg-IJ-JOw" firstAttribute="leading" secondItem="SLW-fM-wTg" secondAttribute="leading" id="1Ux-i1-Zsk"/>
+                            <constraint firstItem="6bg-IJ-JOw" firstAttribute="top" secondItem="gK5-CM-Vgl" secondAttribute="bottom" id="4a6-JO-y7M"/>
                             <constraint firstAttribute="trailing" secondItem="wgb-iw-E2k" secondAttribute="trailing" constant="8" id="CNq-Sf-4S3"/>
                             <constraint firstItem="wgb-iw-E2k" firstAttribute="top" secondItem="gK5-CM-Vgl" secondAttribute="bottom" id="f6v-0H-6TZ"/>
+                            <constraint firstAttribute="trailing" secondItem="6bg-IJ-JOw" secondAttribute="trailing" id="pRd-5G-rJF"/>
+                            <constraint firstItem="uOZ-cX-8li" firstAttribute="top" secondItem="6bg-IJ-JOw" secondAttribute="bottom" id="u5q-ZA-CVK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webViewContainer" destination="6bg-IJ-JOw" id="0n7-tx-Gja"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yu6-7I-BoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2349.5999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="norwegianwood" width="400" height="618"/>
-    </resources>
 </document>
