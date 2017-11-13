@@ -28,6 +28,14 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         shadowedFont()
     }
     
+    func configureCell(source: Source)  {
+        newsAuthorLabel.text = source.name
+        titleLabel.text = source.description
+        imageCell.image = UIImage(named: source.id)
+        
+        shadowedFont()
+    }
+    
     func shadowedFont(){
         newsAuthorLabel.layer.shadowColor = UIColor.black.cgColor
         newsAuthorLabel.layer.shadowOffset = CGSize(width: 4, height: 4)

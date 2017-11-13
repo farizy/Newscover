@@ -110,12 +110,7 @@ class GestureViewController: UIViewController {
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.down {
             print("Swipe Down")
-            
-            let alert = UIAlertController(title: nil, message: "Swipe Down", preferredStyle: UIAlertControllerStyle.alert)
-            let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-            alert.addAction(action)
-            
-            self.present(alert, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

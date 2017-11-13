@@ -30,7 +30,8 @@ class NewsCollectionViewController: UICollectionViewController {
         self.title = "Discover"
         mosaicLayout.delegate = self
         //makeCorner(withRadius: 10)
-        viewModel.getArticle()
+//        viewModel.getArticle()
+        viewModel.getSource()
         configureViewModelObserver()
         
         
@@ -50,6 +51,14 @@ class NewsCollectionViewController: UICollectionViewController {
         })
         .addDisposableTo(disposeBag)
         
+        viewModel.sources
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[weak self] _ in
+                self?.newsCollectionView.reloadData()
+            })
+            .addDisposableTo(disposeBag)
+        
         viewModel.errorObserver
         .asObservable()
         .observeOn(MainScheduler.instance)
@@ -65,7 +74,9 @@ class NewsCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        let item = viewModel.articles.value.count
+//        let item = viewModel.articles.value.count
+        let item = viewModel.sources.value.count
+
         return item
     }
 
@@ -73,15 +84,19 @@ class NewsCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as? NewsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let items = viewModel.articles.value
+//        let items = viewModel.articles.value
+        let items = viewModel.sources.value
         let item = items[indexPath.row]
-        cell.configureCell(data: item)
+        cell.configureCell(source: item)
+        
         return cell
     }
 
    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newsTitle = viewModel.articles.value[indexPath.row].title
-        print(newsTitle)
+//        let newsTitle = viewModel.articles.value[indexPath.row].title
+//        print(newsTitle)
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GestureViewControllerID")
+        self.present(vc, animated: true, completion: nil)
     }
 }
 

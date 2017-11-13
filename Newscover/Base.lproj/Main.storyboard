@@ -75,7 +75,7 @@
         <!--Gesture View Controller-->
         <scene sceneID="UF0-jl-hB5">
             <objects>
-                <viewController id="V3m-l9-5Uo" customClass="GestureViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GestureViewControllerID" id="V3m-l9-5Uo" customClass="GestureViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zOo-AS-4vF"/>
                         <viewControllerLayoutGuide type="bottom" id="p3z-Pr-aW2"/>
