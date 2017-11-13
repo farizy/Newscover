@@ -26,6 +26,8 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         imageCell.af_setImage(withURL: data.urlToImage)
 
         shadowedFont()
+        addInnerShow(onSide: .top, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
+        addInnerShow(onSide: .bottom, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
     }
     
     func configureCell(source: Source)  {
