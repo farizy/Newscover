@@ -10,21 +10,33 @@ import RxSwift
 import RxAlamofire
 import SwiftyJSON
 import Foundation
+import Alamofire
 
 class NewsCollectionViewModel{
     
     var articles: Variable<[Article]> = Variable<[Article]>([])
     var sources: Variable<[Source]> = Variable<[Source]>([])
-
+    var source: Source?
+    
     fileprivate let errorSubject = PublishSubject<String>()
     var errorObserver: Observable<String> {
         return errorSubject.asObserver()
     }
     let disposeBag = DisposeBag()
+    
+    
     func getArticle() {
-        let url = "https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=b73643fbbd3e4c75851fb9d485af385c"
         
-        RxAlamofire.json(.get, url)
+        let url = "https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=b73643fbbd3e4c75851fb9d485af385c"
+        let sourceID = source?.id
+        let baseURL = "https://newsapi.org/v1/articles"
+        var param: [String : Any] = [:]
+        param["source"] = sourceID
+        param["sortBy"] = "top"
+        param["apiKey"] = "b73643fbbd3e4c75851fb9d485af385c"
+        
+        
+        RxAlamofire.json(.get, baseURL, parameters: param)
             .debug()
             .map { [weak self] (data) -> [Article] in
                 let jsonArray = JSON(data)
@@ -52,7 +64,7 @@ class NewsCollectionViewModel{
     }
     
     func getSource() {
-        let url = "https://newsapi.org/v1/sources?language=en&category=sport"
+        let url = "https://newsapi.org/v1/sources?language=en" //&category=sport
         
         RxAlamofire.json(.get, url)
             .debug()

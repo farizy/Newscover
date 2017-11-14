@@ -16,6 +16,7 @@ struct Article {
     let url: URL
     let urlToImage: URL
     let publishedAt: String
+    var isSelected: Bool = false
 }
 
 extension Article{

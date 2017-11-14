@@ -15,7 +15,9 @@ import SwiftyJSON
 
 class GestureViewModel {
     var articles: Variable<[Article]> = Variable<[Article]>([])
-    
+
+    var selectedSource: Source
+        
     fileprivate let errorSubject = PublishSubject<String>()
     var errorObserver: Observable<String> {
         return errorSubject.asObserver()
@@ -23,10 +25,19 @@ class GestureViewModel {
     
     let disposeBag = DisposeBag()
     
+    init(source: Source) {
+        self.selectedSource = source
+    }
     func getArticle() {
+       
         let url = "https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=b73643fbbd3e4c75851fb9d485af385c"
         
-        RxAlamofire.json(.get, url)
+        let baseURL = "https://newsapi.org/v1/articles"
+        var param: [String : String] = [:]
+        param["sortBy"] = "top"
+        param["source"] = selectedSource.id
+        param["apiKey"] = "b73643fbbd3e4c75851fb9d485af385c"
+        RxAlamofire.json(.get, baseURL, parameters: param)
             .debug()
             .map { [weak self] (data) -> [Article] in
                 let jsonArray = JSON(data)

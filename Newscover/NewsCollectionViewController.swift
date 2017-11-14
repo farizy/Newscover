@@ -15,13 +15,14 @@ private let reuseIdentifier = "TRMosaicCell"
 
 class NewsCollectionViewController: UICollectionViewController {
 
+    
     fileprivate let viewModel = NewsCollectionViewModel()
     fileprivate let disposeBag = DisposeBag()
 
     let books = ["norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood"] //, "norwegianwood2", "windupbird", "windupbird2", "running"]
     
     @IBOutlet var newsCollectionView: UICollectionView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView!.register(cellType: NewsCollectionViewCell.self)
@@ -95,7 +96,15 @@ class NewsCollectionViewController: UICollectionViewController {
    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let newsTitle = viewModel.articles.value[indexPath.row].title
 //        print(newsTitle)
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GestureViewControllerID")
+    
+        let apapun = viewModel.sources.value
+        let itemApapun = apapun[indexPath.row]
+        let VM = GestureViewModel(source: itemApapun)
+    
+    guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GestureViewControllerID") as? GestureViewController else{
+            return
+    }
+    vc.viewModel = VM
         self.present(vc, animated: true, completion: nil)
     }
 }

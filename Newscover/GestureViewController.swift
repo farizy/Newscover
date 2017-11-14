@@ -15,16 +15,28 @@ class GestureViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var loadingActivityIndicatorView: UIActivityIndicatorView!
     
-    let viewModel = GestureViewModel()
+    var viewModel: GestureViewModel?
     let disposeBag = DisposeBag()
     
     let book = [#imageLiteral(resourceName: "norwegianwood"), #imageLiteral(resourceName: "norwegianwood2"), #imageLiteral(resourceName: "running"), #imageLiteral(resourceName: "windupbird"), #imageLiteral(resourceName: "windupbird2") ]
     var index: Int = 0
+//    
+//    init(viewModel: GestureViewModel) {
+//        self.viewModel = viewModel
+//
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addGesture()
-        viewModel.getArticle()
+        
+        viewModel?.getArticle()
         configureViewModelObserver()
         loadingActivityIndicatorView.startAnimating()
     }
@@ -51,7 +63,7 @@ class GestureViewController: UIViewController {
     }
     
     func configureViewModelObserver(){
-        viewModel.articles
+        viewModel?.articles
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self](articles) in
@@ -62,17 +74,24 @@ class GestureViewController: UIViewController {
             })
             .addDisposableTo(disposeBag)
         
-        viewModel.errorObserver
+        viewModel?.errorObserver
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (errorMesage) in
                 let alert = UIAlertController(title: nil, message: errorMesage, preferredStyle: UIAlertControllerStyle.alert)
-                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { [weak self] _ in
+                    self?.dismiss(animated: true, completion: nil)
+                })
                 alert.addAction(noAction)
                 self?.present(alert, animated: true, completion: nil)
+                self?.loadingActivityIndicatorView.stopAnimating()
+                
             })
             .addDisposableTo(disposeBag)
-
+    }
+    
+    func dismissVC(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setArticle(article: Article)  {
@@ -82,6 +101,9 @@ class GestureViewController: UIViewController {
     }
     
     func tapImage(_ sender: UIGestureRecognizer) {
+        guard let viewModel = viewModel else{
+            return
+        }
         let widthArea = self.view.bounds.width / 3
         let xTap = sender.location(in: gestureImageView).x
         if xTap < widthArea{
@@ -104,8 +126,8 @@ class GestureViewController: UIViewController {
         
         if gesture.direction == UISwipeGestureRecognizerDirection.up {
             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as? DetailViewController else { return }
-            let article = viewModel.articles.value[index]
-            vc.url = article.url
+            let article = viewModel?.articles.value[index]
+            vc.url = article?.url
             self.present(vc, animated: true, completion: nil)
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.down {
