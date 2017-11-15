@@ -38,6 +38,7 @@ class GestureViewController: UIViewController {
         
         viewModel?.getArticle()
         configureViewModelObserver()
+    
         loadingActivityIndicatorView.startAnimating()
     }
 
@@ -98,8 +99,23 @@ class GestureViewController: UIViewController {
         titleLabel.text = article.title
         descriptionLabel.text = article.description
         gestureImageView.af_setImage(withURL: article.urlToImage)
+        shadowedFont()
+    
     }
     
+    func shadowedFont(){
+        titleLabel.layer.shadowColor = UIColor.black.cgColor
+        titleLabel.layer.shadowOffset = CGSize(width: 4, height: 4)
+        titleLabel.layer.shadowRadius = 3.0
+        titleLabel.layer.shadowOpacity = 1.0
+        titleLabel.layer.masksToBounds = false
+        
+        descriptionLabel.layer.shadowColor = UIColor.black.cgColor
+        descriptionLabel.layer.shadowOffset = CGSize(width: 4, height: 4)
+        descriptionLabel.layer.shadowRadius = 3.0
+        descriptionLabel.layer.shadowOpacity = 1.0
+        descriptionLabel.layer.masksToBounds = false
+    }
     func tapImage(_ sender: UIGestureRecognizer) {
         guard let viewModel = viewModel else{
             return

@@ -18,24 +18,37 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
     
     var data: Article? = nil
     
-    func configureCell(data: Article){
-        self.data = data
-        newsAuthorLabel.text = data.author
-        titleLabel.text = data.title
-        
-        imageCell.af_setImage(withURL: data.urlToImage)
-
-        shadowedFont()
-        addInnerShow(onSide: .top, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
-        addInnerShow(onSide: .bottom, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
-    }
+//    func configureCell(data: Article){
+//        self.data = data
+//        newsAuthorLabel.text = data.author
+//        titleLabel.text = data.title
+//
+//        imageCell.af_setImage(withURL: data.urlToImage)
+//
+//        shadowedFont()
+//        addInnerShow(onSide: .top, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
+//        addInnerShow(onSide: .bottom, shadowColor: UIColor.black, shadowSize: 3.0, cornerRadius: 0.0, shadowOpacity: 1.0)
+//    }
     
     func configureCell(source: Source)  {
         newsAuthorLabel.text = source.name
         titleLabel.text = source.description
-        imageCell.image = UIImage(named: source.id)
+        
+       // imageCell.image = imagePlaceholder()
+        
+        let image = UIImage(named: source.id)
+        if image == nil{
+            imageCell.image = imagePlaceholder()
+        } else{
+            imageCell.image = UIImage(named: source.id)
+        }
         
         shadowedFont()
+        
+        let subLayer = layer.sublayers?.count ?? 0
+        if subLayer == 1{
+            addInnerShow(onSide: .bottom, shadowColor: UIColor.darkGray, shadowSize: 40.0, cornerRadius: 0.0, shadowOpacity: 1.0)
+        }
     }
     
     func shadowedFont(){
@@ -50,5 +63,9 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         titleLabel.layer.shadowRadius = 1.0
         titleLabel.layer.shadowOpacity = 5.0
         titleLabel.layer.masksToBounds = false
+    }
+    
+    func imagePlaceholder() -> UIImage? {
+        return #imageLiteral(resourceName: "nfl-news")
     }
 }

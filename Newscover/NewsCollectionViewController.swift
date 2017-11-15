@@ -106,6 +106,7 @@ class NewsCollectionViewController: UICollectionViewController {
     }
     vc.viewModel = VM
         self.present(vc, animated: true, completion: nil)
+    print("Tapped \(viewModel.sources.value[indexPath.row].id)")
     }
 }
 

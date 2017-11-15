@@ -8,14 +8,23 @@
 
 import UIKit
 
+
+
 extension UIView{
     
     public enum innerShadowSide{
         case all, left, right, top, bottom
     }
+
     public func addInnerShow(onSide: innerShadowSide, shadowColor: UIColor, shadowSize: CGFloat, cornerRadius: CGFloat = 0.0, shadowOpacity: Float){
         
-        let shadowLayer = CAShapeLayer()
+        var shadowLayer: CAShapeLayer = CAShapeLayer()
+
+        
+        guard !(layer.sublayers?.contains(shadowLayer))! else{
+            return
+        }
+
         shadowLayer.frame = bounds
         shadowLayer.shadowColor = shadowColor.cgColor
         shadowLayer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -43,8 +52,7 @@ extension UIView{
         shadowPath.addRect(innerFrame)
         
         shadowLayer.path = shadowPath
-        
-        
+
         layer.addSublayer(shadowLayer)
         
         clipsToBounds = true
