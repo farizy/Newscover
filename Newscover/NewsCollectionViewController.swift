@@ -10,18 +10,24 @@ import UIKit
 import TRMosaicLayout
 import RxCocoa
 import RxSwift
+import NVActivityIndicatorView
 
 private let reuseIdentifier = "TRMosaicCell"
 
-class NewsCollectionViewController: UICollectionViewController {
+class NewsCollectionViewController: UICollectionViewController, NVActivityIndicatorViewable {
 
     
     fileprivate let viewModel = NewsCollectionViewModel()
     fileprivate let disposeBag = DisposeBag()
+    
+    let progressView = CGSize(width: 80, height: 80)
+    
 
     let books = ["norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood"] //, "norwegianwood2", "windupbird", "windupbird2", "running"]
     
     @IBOutlet var newsCollectionView: UICollectionView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,8 @@ class NewsCollectionViewController: UICollectionViewController {
 //        viewModel.getArticle()
         viewModel.getSource()
         configureViewModelObserver()
+        
+        startAnimating(self.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
         
         
     }
@@ -57,6 +65,7 @@ class NewsCollectionViewController: UICollectionViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in
                 self?.newsCollectionView.reloadData()
+                self?.stopAnimating()
             })
             .addDisposableTo(disposeBag)
         
@@ -64,6 +73,7 @@ class NewsCollectionViewController: UICollectionViewController {
         .asObservable()
         .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] errorMessage in
+                self?.stopAnimating()
                 let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
                 let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(noAction)

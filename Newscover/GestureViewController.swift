@@ -8,13 +8,15 @@
 
 import UIKit
 import RxSwift
+import NVActivityIndicatorView
 
-class GestureViewController: UIViewController {
+class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var gestureImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var loadingActivityIndicatorView: UIActivityIndicatorView!
     
+    
+    let progressView = CGSize(width: 50, height: 50)
     var viewModel: GestureViewModel?
     let disposeBag = DisposeBag()
     
@@ -35,11 +37,14 @@ class GestureViewController: UIViewController {
         super.viewDidLoad()
         
         addGesture()
-        
-        viewModel?.getArticle()
+        guard let viewModel = viewModel else{
+            return
+        }
+        viewModel.getArticle()
         configureViewModelObserver()
     
-        loadingActivityIndicatorView.startAnimating()
+        startAnimating(progressView, message: "\(viewModel.selectedSource.name)", type: .ballClipRotateMultiple, color: UIColor.white, backgroundColor: UIColor.clear, textColor: UIColor.white)
+        //loadingActivityIndicatorView.startAnimating()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,10 +73,12 @@ class GestureViewController: UIViewController {
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self](articles) in
+                self?.stopAnimating()
                 //    self?.textLabel.text = articles.first?.title
-                self?.loadingActivityIndicatorView.stopAnimating()
+               // self?.loadingActivityIndicatorView.stopAnimating()
                 guard let first = articles.first else { return }
                 self?.setArticle(article: first)
+                
             })
             .addDisposableTo(disposeBag)
         
@@ -79,13 +86,14 @@ class GestureViewController: UIViewController {
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] (errorMesage) in
+                self?.stopAnimating()
                 let alert = UIAlertController(title: nil, message: errorMesage, preferredStyle: UIAlertControllerStyle.alert)
                 let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { [weak self] _ in
                     self?.dismiss(animated: true, completion: nil)
                 })
                 alert.addAction(noAction)
                 self?.present(alert, animated: true, completion: nil)
-                self?.loadingActivityIndicatorView.stopAnimating()
+                //self?.loadingActivityIndicatorView.stopAnimating()
                 
             })
             .addDisposableTo(disposeBag)
@@ -100,6 +108,7 @@ class GestureViewController: UIViewController {
         descriptionLabel.text = article.description
         gestureImageView.af_setImage(withURL: article.urlToImage)
         shadowedFont()
+
     
     }
     
@@ -131,7 +140,9 @@ class GestureViewController: UIViewController {
         if index < 0 { index = 0 }
 //        if index > book.count-1 { index = book.count-1}
 //        gestureImageView.image = book[index]
-        if index > viewModel.articles.value.count-1 { index = viewModel.articles.value.count-1}
+        if index > viewModel.articles.value.count-1 {
+            index = viewModel.articles.value.count-1
+        }
         let article = viewModel.articles.value[index]
         self.setArticle(article: article)
     }
@@ -143,6 +154,7 @@ class GestureViewController: UIViewController {
         if gesture.direction == UISwipeGestureRecognizerDirection.up {
             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as? DetailViewController else { return }
             let article = viewModel?.articles.value[index]
+
             vc.url = article?.url
             self.present(vc, animated: true, completion: nil)
         }

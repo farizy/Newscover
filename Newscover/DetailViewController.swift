@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 
+
 class DetailViewController: UIViewController {
 //    @IBOutlet weak var contentWebView: WKWebView!
     @IBAction func dismissAction(_ sender: UIButton) {
@@ -16,6 +17,7 @@ class DetailViewController: UIViewController {
     }
     @IBOutlet weak var webViewContainer: UIView!
     
+    let progressView = CGSize(width: 50, height: 50)
     var contentWebView: WKWebView = WKWebView()
     var url: URL? = nil
     
@@ -37,7 +39,6 @@ class DetailViewController: UIViewController {
             anchor.isActive = true
         })
 
-        
         guard let url = self.url else { return }
         let request = URLRequest(url: url)
         contentWebView.load(request)

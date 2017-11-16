@@ -105,10 +105,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0lS-5z-gOk">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -117,19 +113,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Yft-cV-4ih" secondAttribute="trailing" id="BNS-QY-sKC"/>
                             <constraint firstItem="aQL-AM-C6L" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leading" id="DVb-K4-sWd"/>
                             <constraint firstItem="p3z-Pr-aW2" firstAttribute="top" secondItem="aQL-AM-C6L" secondAttribute="bottom" id="FuW-ep-11n"/>
-                            <constraint firstItem="0lS-5z-gOk" firstAttribute="centerX" secondItem="6WW-Mn-tjz" secondAttribute="centerX" id="It6-iE-lwk"/>
                             <constraint firstAttribute="trailing" secondItem="aQL-AM-C6L" secondAttribute="trailing" id="Zcq-Vt-WYo"/>
                             <constraint firstItem="c9j-wJ-hwu" firstAttribute="top" secondItem="zOo-AS-4vF" secondAttribute="bottom" id="gAu-dk-yh5"/>
                             <constraint firstItem="Yft-cV-4ih" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leadingMargin" id="hkc-P3-OdD"/>
                             <constraint firstItem="c9j-wJ-hwu" firstAttribute="leading" secondItem="6WW-Mn-tjz" secondAttribute="leadingMargin" id="n6H-mA-m2i"/>
-                            <constraint firstItem="0lS-5z-gOk" firstAttribute="centerY" secondItem="6WW-Mn-tjz" secondAttribute="centerY" id="nZh-3E-b10"/>
                             <constraint firstItem="p3z-Pr-aW2" firstAttribute="top" secondItem="Yft-cV-4ih" secondAttribute="bottom" constant="16" id="rdd-sd-0Z0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="Yft-cV-4ih" id="4BM-fQ-QB1"/>
                         <outlet property="gestureImageView" destination="aQL-AM-C6L" id="quO-ad-imX"/>
-                        <outlet property="loadingActivityIndicatorView" destination="0lS-5z-gOk" id="1ki-zE-c9O"/>
                         <outlet property="titleLabel" destination="c9j-wJ-hwu" id="8dp-ho-YhP"/>
                     </connections>
                 </viewController>
