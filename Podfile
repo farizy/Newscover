@@ -13,5 +13,6 @@ target 'Newscover' do
     pod 'RxAlamofire'
     pod 'Reusable'
     pod 'TRMosaicLayout'
+    pod 'NVActivityIndicatorView'
     
 end

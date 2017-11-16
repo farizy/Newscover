@@ -45,10 +45,10 @@ internal final class NewsCollectionViewCell: UICollectionViewCell, NibReusable {
         
         shadowedFont()
         
-        let subLayer = layer.sublayers?.count ?? 0
-        if subLayer == 1{
-            addInnerShow(onSide: .bottom, shadowColor: UIColor.darkGray, shadowSize: 40.0, cornerRadius: 0.0, shadowOpacity: 1.0)
-        }
+//        let subLayer = layer.sublayers?.count ?? 0
+//        if subLayer == 1{
+//            addInnerShow(onSide: .bottom, shadowColor: UIColor.darkGray, shadowSize: 40.0, cornerRadius: 0.0, shadowOpacity: 1.0)
+//        }
     }
     
     func shadowedFont(){

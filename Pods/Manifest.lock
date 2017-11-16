@@ -2,6 +2,9 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - NVActivityIndicatorView (3.7.0):
+    - NVActivityIndicatorView/Presenter (= 3.7.0)
+  - NVActivityIndicatorView/Presenter (3.7.0)
   - Reusable (4.0.0):
     - Reusable/Storyboard (= 4.0.0)
     - Reusable/View (= 4.0.0)
@@ -21,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - NVActivityIndicatorView
   - Reusable
   - RxAlamofire
   - RxCocoa
@@ -31,6 +35,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
@@ -38,6 +43,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: 25c9ba2e68a99c1217047c917b8f2f2a7376a13d
+PODFILE CHECKSUM: 133dced052e083d390026202e8cb4829387c8e2f
 
 COCOAPODS: 1.2.1
