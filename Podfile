@@ -14,5 +14,6 @@ target 'Newscover' do
     pod 'Reusable'
     pod 'TRMosaicLayout'
     pod 'NVActivityIndicatorView'
+    pod 'StatefulViewController'
     
 end

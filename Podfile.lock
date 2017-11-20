@@ -18,6 +18,7 @@ PODS:
   - RxCocoa (3.6.1):
     - RxSwift (~> 3.6)
   - RxSwift (3.6.1)
+  - StatefulViewController (3.0)
   - SwiftyJSON (3.1.4)
   - TRMosaicLayout (1.0.0)
 
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - RxAlamofire
   - RxCocoa
   - RxSwift
+  - StatefulViewController
   - SwiftyJSON
   - TRMosaicLayout
 
@@ -40,9 +42,10 @@ SPEC CHECKSUMS:
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: 133dced052e083d390026202e8cb4829387c8e2f
+PODFILE CHECKSUM: 0c868a78c31a35168d81ada49442d0a8422f90e7
 
 COCOAPODS: 1.2.1
