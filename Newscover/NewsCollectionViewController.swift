@@ -11,6 +11,7 @@ import TRMosaicLayout
 import RxCocoa
 import RxSwift
 import NVActivityIndicatorView
+import StatefulViewController
 
 private let reuseIdentifier = "TRMosaicCell"
 
@@ -25,6 +26,18 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
 
     let books = ["norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood", "norwegianwood"] //, "norwegianwood2", "windupbird", "windupbird2", "running"]
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = UIColor.black
+        return refreshControl
+    }()
+    
+    func handleRefresh(_ refreshControl: UIRefreshControl){
+        self.viewModel.getSource()
+        self.collectionView?.reloadData()
+        refreshControl.endRefreshing()
+    }
     @IBOutlet var newsCollectionView: UICollectionView!
     
     
@@ -36,10 +49,11 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         self.collectionView?.collectionViewLayout = mosaicLayout
         self.title = "Discover"
         mosaicLayout.delegate = self
-        //makeCorner(withRadius: 10)
-//        viewModel.getArticle()
+        
+        self.collectionView?.addSubview(self.refreshControl)
         viewModel.getSource()
         configureViewModelObserver()
+        configurePlaceholderView()
         
         startAnimating(self.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
         
@@ -74,12 +88,33 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] errorMessage in
                 self?.stopAnimating()
-                let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
-                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                alert.addAction(noAction)
-                self?.present(alert, animated: true, completion: nil)
+                //self?.setMessageForErrorView(errorMessage)
+                if let errorView = self?.errorView as? ErrorView{
+                    errorView.setMessage(errorMessage)
+                }
+//                let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+//                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+//                alert.addAction(noAction)
+//                self?.present(alert, animated: true, completion: nil)
         })
         .addDisposableTo(disposeBag)
+    }
+    
+    func configurePlaceholderView(){
+        
+        errorView = ErrorView(frame: view.frame)
+        if let errorView = errorView as? ErrorView {
+            errorView.retryButtonTapped = { [weak self] in
+                self?.startAnimating(self?.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
+                self?.viewModel.getSource()
+            }
+        }
+    }
+    
+    func setMessageForErrorView(_ message: String){
+        if let errorView = errorView as? ErrorView{
+            errorView.setMessage(message)
+        }
     }
 
 
@@ -137,4 +172,10 @@ extension NewsCollectionViewController: TRMosaicLayoutDelegate{
         return 150
     }
     
+}
+
+extension NewsCollectionViewController: StatefulViewController{
+    func hasContent() -> Bool {
+        return viewModel.sources.value.count > 0
+    }
 }
