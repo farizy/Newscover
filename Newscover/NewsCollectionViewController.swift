@@ -47,6 +47,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         self.collectionView!.register(cellType: NewsCollectionViewCell.self)
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
+        
         self.title = "Discover"
         mosaicLayout.delegate = self
         
@@ -54,9 +55,8 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         viewModel.getSource()
         configureViewModelObserver()
         configurePlaceholderView()
-        
+        startLoading()
         startAnimating(self.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
-        
         
     }
 
@@ -79,6 +79,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in
                 self?.newsCollectionView.reloadData()
+                self?.endLoading()
                 self?.stopAnimating()
             })
             .addDisposableTo(disposeBag)
@@ -87,8 +88,9 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         .asObservable()
         .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] errorMessage in
+                self?.endLoading()
                 self?.stopAnimating()
-                //self?.setMessageForErrorView(errorMessage)
+                self?.setMessageForErrorView(errorMessage)
                 if let errorView = self?.errorView as? ErrorView{
                     errorView.setMessage(errorMessage)
                 }
@@ -101,12 +103,13 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }
     
     func configurePlaceholderView(){
-        
+        //loadingView = ErrorView(frame: view.frame)
         errorView = ErrorView(frame: view.frame)
         if let errorView = errorView as? ErrorView {
             errorView.retryButtonTapped = { [weak self] in
                 self?.startAnimating(self?.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
                 self?.viewModel.getSource()
+                self?.collectionView?.reloadData()
             }
         }
     }

@@ -22,16 +22,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="connectiontimedoutplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-25-ueT">
-                    <rect key="frame" x="27" y="20" width="320" height="319"/>
+                    <rect key="frame" x="27" y="110" width="320" height="319"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDv-oq-Wxf">
-                    <rect key="frame" x="16" y="319" width="343" height="18"/>
+                    <rect key="frame" x="16" y="409" width="343" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hsm-ow-XD6">
-                    <rect key="frame" x="144" y="345" width="86" height="28"/>
+                    <rect key="frame" x="100" y="435" width="175" height="28"/>
                     <color key="backgroundColor" red="0.88627450980392153" green="0.3411764705882353" blue="0.26666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="Tap To Retry">
@@ -46,9 +46,9 @@
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SfN-25-ueT" secondAttribute="trailing" constant="28" id="Cvu-MC-k16"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IDv-oq-Wxf" secondAttribute="trailing" constant="16" id="L2t-K2-Li5"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Hsm-ow-XD6" secondAttribute="trailing" constant="145" id="MtF-Jr-IeV"/>
-                <constraint firstItem="SfN-25-ueT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ofa-Cv-ZEc"/>
-                <constraint firstItem="Hsm-ow-XD6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="144" id="fb4-iu-3FR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Hsm-ow-XD6" secondAttribute="trailing" constant="100" id="MtF-Jr-IeV"/>
+                <constraint firstItem="SfN-25-ueT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="90" id="Ofa-Cv-ZEc"/>
+                <constraint firstItem="Hsm-ow-XD6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="fb4-iu-3FR"/>
                 <constraint firstItem="Hsm-ow-XD6" firstAttribute="top" secondItem="SfN-25-ueT" secondAttribute="bottom" constant="6" id="kFe-nm-evR"/>
                 <constraint firstItem="Hsm-ow-XD6" firstAttribute="top" secondItem="IDv-oq-Wxf" secondAttribute="bottom" constant="8" id="mTA-Z2-xad"/>
                 <constraint firstItem="IDv-oq-Wxf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="w4U-hb-TWs"/>

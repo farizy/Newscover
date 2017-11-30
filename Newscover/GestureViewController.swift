@@ -11,6 +11,8 @@ import RxSwift
 import NVActivityIndicatorView
 import WebKit
 
+
+
 class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var gestureImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,6 +22,7 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var webViewContainer: UIView!
     var contentWebView: WKWebView = WKWebView()
 
+    @IBOutlet weak var favoriteButton: UIButton!
     let progressView = CGSize(width: 50, height: 50)
     var viewModel: GestureViewModel?
     let disposeBag = DisposeBag()
@@ -37,6 +40,9 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
 //    }
 
     
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        self.favoriteButton.setImage(#imageLiteral(resourceName: "red-heart"), for: .normal)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()

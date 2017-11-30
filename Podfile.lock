@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
+  - DropDown (2)
   - NVActivityIndicatorView (3.7.0):
     - NVActivityIndicatorView/Presenter (= 3.7.0)
   - NVActivityIndicatorView/Presenter (3.7.0)
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - DropDown
   - NVActivityIndicatorView
   - Reusable
   - RxAlamofire
@@ -37,6 +39,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   NVActivityIndicatorView: d3738df7e2e476aca0ba6bf32a8c9fbcfc33d64b
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
@@ -46,6 +49,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
 
-PODFILE CHECKSUM: 0c868a78c31a35168d81ada49442d0a8422f90e7
+PODFILE CHECKSUM: 5a06601bfd7d97eab44bed250ed9ab51db10cb40
 
 COCOAPODS: 1.3.1
