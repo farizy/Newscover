@@ -34,6 +34,7 @@ class GestureViewModel {
         param["sortBy"] = "top"
         param["source"] = selectedSource.id
         param["apiKey"] = "b73643fbbd3e4c75851fb9d485af385c"
+
         RxAlamofire.json(.get, baseURL, parameters: param)
             .debug()
             .map { [weak self] (data) -> [Article] in

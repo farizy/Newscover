@@ -27,18 +27,7 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     var viewModel: GestureViewModel?
     let disposeBag = DisposeBag()
     
-    let book = [#imageLiteral(resourceName: "norwegianwood"), #imageLiteral(resourceName: "norwegianwood2"), #imageLiteral(resourceName: "running"), #imageLiteral(resourceName: "windupbird"), #imageLiteral(resourceName: "windupbird2") ]
     var index: Int = 0
-//    
-//    init(viewModel: GestureViewModel) {
-//        self.viewModel = viewModel
-//
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-
     
     @IBAction func favoriteButtonTapped(_ sender: Any) {
         self.favoriteButton.setImage(#imageLiteral(resourceName: "red-heart"), for: .normal)
@@ -90,7 +79,6 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     
     func addGesture() {
         gestureImageView.isUserInteractionEnabled = true
-        //        gestureImageView.image = book[index]
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapImage(_:)))
         gestureImageView.addGestureRecognizer(tap)
@@ -175,8 +163,6 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         }
         
         if index < 0 { index = 0 }
-//        if index > book.count-1 { index = book.count-1}
-//        gestureImageView.image = book[index]
         if index > viewModel.articles.value.count-1 {
             index = viewModel.articles.value.count-1
         }

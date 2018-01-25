@@ -14,7 +14,7 @@ import Alamofire
 
 class NewsCollectionViewModel{
     
-    var articles: Variable<[Article]> = Variable<[Article]>([])
+//    var articles: Variable<[Article]> = Variable<[Article]>([])
     var sources: Variable<[Source]> = Variable<[Source]>([])
     var source: Source?
     
