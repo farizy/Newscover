@@ -29,9 +29,6 @@ class GestureViewModel {
         self.selectedSource = source
     }
     func getArticle() {
-       
-        let url = "https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=b73643fbbd3e4c75851fb9d485af385c"
-        
         let baseURL = "https://newsapi.org/v1/articles"
         var param: [String : String] = [:]
         param["sortBy"] = "top"

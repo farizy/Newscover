@@ -189,12 +189,6 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         guard let gesture = gesture as? UISwipeGestureRecognizer else { return }
         
         if gesture.direction == UISwipeGestureRecognizerDirection.up {
-//            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailViewControllerID") as? DetailViewController else { return }
-//            let article = viewModel?.articles.value[index]
-//
-//            vc.url = article?.url
-//            self.present(vc, animated: true, completion: nil)
-
             UIView.animate(withDuration: 1.0, animations: {
                 self.topViewConstraint.constant = 0.0
                 self.view.layoutIfNeeded()

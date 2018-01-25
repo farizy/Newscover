@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V3m-l9-5Uo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="V3m-l9-5Uo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -165,53 +165,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVw-fr-fEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1522" y="34"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="lqF-bP-fLm">
-            <objects>
-                <viewController storyboardIdentifier="DetailViewControllerID" id="ggi-Pw-sxF" customClass="DetailViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gK5-CM-Vgl"/>
-                        <viewControllerLayoutGuide type="bottom" id="uOZ-cX-8li"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SLW-fM-wTg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-IJ-JOw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgb-iw-E2k">
-                                <rect key="frame" x="303" y="20" width="64" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="Mdn-KW-Dvw"/>
-                                    <constraint firstAttribute="width" secondItem="wgb-iw-E2k" secondAttribute="height" id="ZdR-Ku-193"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="x"/>
-                                <connections>
-                                    <action selector="dismissAction:" destination="ggi-Pw-sxF" eventType="touchUpInside" id="3Eq-ua-Esr"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="6bg-IJ-JOw" firstAttribute="leading" secondItem="SLW-fM-wTg" secondAttribute="leading" id="1Ux-i1-Zsk"/>
-                            <constraint firstItem="6bg-IJ-JOw" firstAttribute="top" secondItem="gK5-CM-Vgl" secondAttribute="bottom" id="4a6-JO-y7M"/>
-                            <constraint firstAttribute="trailing" secondItem="wgb-iw-E2k" secondAttribute="trailing" constant="8" id="CNq-Sf-4S3"/>
-                            <constraint firstItem="wgb-iw-E2k" firstAttribute="top" secondItem="gK5-CM-Vgl" secondAttribute="bottom" id="f6v-0H-6TZ"/>
-                            <constraint firstAttribute="trailing" secondItem="6bg-IJ-JOw" secondAttribute="trailing" id="pRd-5G-rJF"/>
-                            <constraint firstItem="uOZ-cX-8li" firstAttribute="top" secondItem="6bg-IJ-JOw" secondAttribute="bottom" id="u5q-ZA-CVK"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="webViewContainer" destination="6bg-IJ-JOw" id="0n7-tx-Gja"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yu6-7I-BoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2349.5999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
     <resources>
