@@ -29,15 +29,9 @@ class GestureViewModel {
         self.selectedSource = source
     }
     func getArticle() {
-        let baseURL = "https://newsapi.org/v1/articles"
-        var param: [String : String] = [:]
-        param["sortBy"] = "top"
-        param["source"] = selectedSource.id
-        param["apiKey"] = "b73643fbbd3e4c75851fb9d485af385c"
-
-        RxAlamofire.json(.get, baseURL, parameters: param)
+        RxAlamofire.requestJSON(NewsEndPoint.articles(source: selectedSource.id, sortBy: nil))
             .debug()
-            .map { [weak self] (data) -> [Article] in
+            .map { [weak self] (response, data) -> [Article] in
                 let jsonArray = JSON(data)
                 guard let articlesJSON = jsonArray["articles"].array else{
                     let errorMsg = jsonArray["message"].string ?? "JSON Parse Error"

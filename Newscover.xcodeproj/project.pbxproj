@@ -71,6 +71,7 @@
 		0822B45424C990A40C2FD667 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				2FFD089F1FB03C1E006AE606 /* Products */,
 				D0867C06851D4816638975B6 /* Pods-Newscover.debug.xcconfig */,
 				B15F3E0B99427B51D4081860 /* Pods-Newscover.release.xcconfig */,
 			);
@@ -81,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFD08A01FB03C1E006AE606 /* Newscover */,
-				2FFD089F1FB03C1E006AE606 /* Products */,
 				0822B45424C990A40C2FD667 /* Pods */,
 				8608916A0947AB55DA29B520 /* Frameworks */,
 			);
