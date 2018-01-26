@@ -14,7 +14,6 @@ import Alamofire
 
 class NewsCollectionViewModel{    
     var sources: Variable<[Source]> = Variable<[Source]>([])
-    var source: Source?
     
     fileprivate let errorSubject = PublishSubject<String>()
     var errorObserver: Observable<String> {
@@ -23,6 +22,7 @@ class NewsCollectionViewModel{
     let disposeBag = DisposeBag()
         
     func getSource() {
+        /*
         RxAlamofire.requestJSON(NewsEndPoint.sources(language: "en", category: nil))
             .debug()
             .map { [weak self] (response, data) -> [Source] in
@@ -49,5 +49,15 @@ class NewsCollectionViewModel{
                 }
             })
             .addDisposableTo(disposeBag)
+         */
+        let services = NewsServices()
+        services.getSources { (result) in
+            switch result{
+            case .success(let sources):
+                self.sources.value = sources
+            case .failure(let error):
+                self.errorSubject.onNext(error.localizedDescription)
+            }
+        }
     }
 }
