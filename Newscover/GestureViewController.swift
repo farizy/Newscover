@@ -162,10 +162,11 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
             index += 1
         }
         
-        if index < 0 { index = 0 }
         if index > viewModel.articles.value.count-1 {
             index = viewModel.articles.value.count-1
         }
+        if index < 0 { index = 0 }
+
         let article = viewModel.articles.value[index]
         self.setArticle(article: article)
     }

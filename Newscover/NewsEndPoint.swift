@@ -42,7 +42,9 @@ enum NewsEndPoint: URLRequestConvertible {
             return params
         case .sources(let language, let category):
             params["apiKey"] = self.apiKey
-            params["language"] = language ?? "en"
+            if let lang = language{
+                params["language"] = lang
+            }
             if let category = category{
                 params["category"] = category
             }

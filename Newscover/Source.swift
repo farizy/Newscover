@@ -16,8 +16,8 @@ enum Category: String {
     case gaming = "gaming"
     case music = "music"
     case politics = "politics"
-    case science = "science-and-nature"
-    case sport = "sport"
+    case science = "science"
+    case sport = "sports"
     case technology = "technology"
 }
 
