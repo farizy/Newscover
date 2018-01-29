@@ -9,9 +9,9 @@
 import Alamofire
 import SwiftyJSON
 
-enum Result<T, E: Error> {
+enum Result<T> {
     case success(T)
-    case failure(E)
+    case failure(Error)
 }
 
 enum APIError: Error {
@@ -37,41 +37,41 @@ class NewsServices {
 //    public static let shared = NewsServices()
     
     func getArticles(source: String, sortBy: String? = nil,
-                     completion: @escaping(Result<[Article], APIError >) -> Void) {
+                     completion: @escaping(Result<[Article]>) -> Void) {
         Alamofire.request(NewsEndPoint.articles(source: source, sortBy: sortBy))
+            .validate()
             .responseJSON { (response) in
-                if let error = response.error{
-                    print(error.localizedDescription)
-                    completion(.failure(APIError.requestFailed))
-                    return
-                }
-                
-                guard response.response?.statusCode == 200 else {
-                    completion(.failure(APIError.responseUnsuccessful))
-                    return
-                }
-                
-                guard let value = response.result.value,
-                    let json = JSON(value) as? JSON,
-                    let articleJSON = json["articles"].array
-                    else{
+                switch response.result {
+                case .success(_):
+                    guard let json = JSON(response.result.value) as? JSON,
+                        json.isEmpty == false
+                    else {
+                        completion(.failure(APIError.jsonConversionFailure))
+                        return
+                    }
+                    
+                    guard let articleJSON = json["articles"].array else {
                         completion(.failure(APIError.invalidData))
                         return
+                    }
+                    let article = articleJSON.flatMap({ Article(json: $0) })
+                    completion(.success(article))
+
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
                 }
-                let article = articleJSON.flatMap({ Article(json: $0) })
-                
-                completion(.success(article))
         }
     }
     
     func getSources(language: String? = "en", category: String? = nil,
-                    completion: @escaping (Result<[Source], APIError>) -> Void) {
+                    completion: @escaping (Result<[Source]>) -> Void) {
 
         Alamofire.request(NewsEndPoint.sources(language: language, category: category))
             .responseJSON { (response) in
                 if let error = response.error{
-                    print(error.localizedDescription)
-                    completion(.failure(APIError.requestFailed))
+                    completion(.failure(error))
                     return
                 }
                 

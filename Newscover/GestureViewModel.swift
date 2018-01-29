@@ -61,6 +61,7 @@ class GestureViewModel {
             case .success(let articles):
                 self.articles.value = articles
             case .failure(let error):
+                print(error.localizedDescription)
                 self.errorSubject.onNext(error.localizedDescription)
             }
         }
