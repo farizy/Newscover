@@ -119,15 +119,14 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP0-ci-Suv">
                                 <rect key="frame" x="4" y="329" width="367" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-8b-T4I">
-                                <rect key="frame" x="330" y="329" width="41" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-8b-T4I">
+                                <rect key="frame" x="321" y="329" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fuY-8b-T4I" secondAttribute="height" id="BDF-i1-PrD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="x"/>
+                                <state key="normal" image="icons8-cancel"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -169,5 +168,6 @@
     </scenes>
     <resources>
         <image name="blank-heart" width="128" height="128"/>
+        <image name="icons8-cancel" width="50" height="50"/>
     </resources>
 </document>
