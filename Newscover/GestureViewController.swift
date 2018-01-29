@@ -60,7 +60,7 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         
         webViewContainer.clipsToBounds = true
         
-        contentWebView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+        /*contentWebView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
         contentWebView.translatesAutoresizingMaskIntoConstraints = false
         contentWebView.scrollView.layer.masksToBounds = false
         
@@ -74,7 +74,7 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         ]
         constraints.forEach({ anchor in
             anchor.isActive = true
-        })
+        })*/
     }
     
     func addGesture() {
@@ -133,8 +133,8 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         gestureImageView.af_setImage(withURL: article.urlToImage)
         shadowedFont()
         
-        let request = URLRequest(url: article.url)
-        contentWebView.load(request)
+//        let request = URLRequest(url: article.url)
+//        contentWebView.load(request)
     }
     
     func shadowedFont(){
@@ -175,10 +175,18 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         guard let gesture = gesture as? UISwipeGestureRecognizer else { return }
         
         if gesture.direction == UISwipeGestureRecognizerDirection.up {
-            UIView.animate(withDuration: 1.0, animations: {
-                self.topViewConstraint.constant = 0.0
-                self.view.layoutIfNeeded()
-            })
+//            UIView.animate(withDuration: 1.0, animations: {
+//                self.topViewConstraint.constant = 0.0
+//                self.view.layoutIfNeeded()
+//            })
+            guard let article = viewModel?.articles.value[index],
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewControllerID") as? WebViewController
+            else { return }
+            
+            vc.article = article
+            let navController = UINavigationController(rootViewController: vc)
+            
+            present(navController, animated: true, completion: nil)
         }
         else if gesture.direction == UISwipeGestureRecognizerDirection.down {
             print("Swipe Down")
