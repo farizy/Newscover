@@ -29,7 +29,7 @@ class GestureViewModel {
         self.selectedSource = source
     }
     func getArticle() {
-        RxAlamofire.requestJSON(NewsEndPoint.articles(source: selectedSource.id, sortBy: nil))
+        /*RxAlamofire.requestJSON(NewsEndPoint.articles(source: selectedSource.id, sortBy: nil))
             .debug()
             .map { [weak self] (response, data) -> [Article] in
                 let jsonArray = JSON(data)
@@ -54,6 +54,16 @@ class GestureViewModel {
                 }
             })
             .addDisposableTo(disposeBag)
+         */
+        let services = NewsServices()
+        services.getArticles(source: selectedSource.id) { (result) in
+            switch result{
+            case .success(let articles):
+                self.articles.value = articles
+            case .failure(let error):
+                self.errorSubject.onNext(error.localizedDescription)
+            }
+        }
     }
 }
 

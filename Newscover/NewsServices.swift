@@ -7,13 +7,11 @@
 //
 
 import Alamofire
-//import RxSwift
-//import RxAlamofire
 import SwiftyJSON
 
-enum Result<T, U> where U: Error  {
+enum Result<T, E: Error> {
     case success(T)
-    case failure(U)
+    case failure(E)
 }
 
 enum APIError: Error {
@@ -38,11 +36,38 @@ enum APIError: Error {
 class NewsServices {
 //    public static let shared = NewsServices()
     
+    func getArticles(source: String, sortBy: String? = nil,
+                     completion: @escaping(Result<[Article], APIError >) -> Void) {
+        Alamofire.request(NewsEndPoint.articles(source: source, sortBy: sortBy))
+            .responseJSON { (response) in
+                if let error = response.error{
+                    print(error.localizedDescription)
+                    completion(.failure(APIError.requestFailed))
+                    return
+                }
+                
+                guard response.response?.statusCode == 200 else {
+                    completion(.failure(APIError.responseUnsuccessful))
+                    return
+                }
+                
+                guard let value = response.result.value,
+                    let json = JSON(value) as? JSON,
+                    let articleJSON = json["articles"].array
+                    else{
+                        completion(.failure(APIError.invalidData))
+                        return
+                }
+                let article = articleJSON.flatMap({ Article(json: $0) })
+                
+                completion(.success(article))
+        }
+    }
+    
     func getSources(language: String? = "en", category: String? = nil,
-                           completion: @escaping (Result<[Source], APIError>) -> Void) {
+                    completion: @escaping (Result<[Source], APIError>) -> Void) {
 
-        let lang = language ?? "en"
-        Alamofire.request(NewsEndPoint.sources(language: lang, category: category))
+        Alamofire.request(NewsEndPoint.sources(language: language, category: category))
             .responseJSON { (response) in
                 if let error = response.error{
                     print(error.localizedDescription)
@@ -65,17 +90,6 @@ class NewsServices {
                 let sources = sourceJSON.flatMap({ Source(json: $0) })
 
                 completion(.success(sources))
-                
-//                if let value = response.result.value,
-//                    let json = JSON(value) as? JSON,
-//                    let sourceJSON = json["sources"].array {
-//
-//                    let sources = sourceJSON.flatMap({ Source(json: $0) })
-//
-//                    completion(.success(sources))
-//                }else{
-//                    completion(.failure(APIError.jsonParsingFailure))
-//                }
         }
     }
     
