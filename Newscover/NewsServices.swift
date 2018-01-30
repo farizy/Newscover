@@ -42,10 +42,8 @@ class NewsServices {
             .validate()
             .responseJSON { (response) in
                 switch response.result {
-                case .success(_):
-                    guard let json = JSON(response.result.value) as? JSON,
-                        json.isEmpty == false
-                    else {
+                case .success(let value):
+                    guard let json = JSON(rawValue: value) else {
                         completion(.failure(APIError.jsonConversionFailure))
                         return
                     }
@@ -69,27 +67,28 @@ class NewsServices {
                     completion: @escaping (Result<[Source]>) -> Void) {
 
         Alamofire.request(NewsEndPoint.sources(language: language, category: category))
+            .validate()
             .responseJSON { (response) in
-                if let error = response.error{
-                    completion(.failure(error))
-                    return
-                }
-                
-                guard response.response?.statusCode == 200 else {
-                    completion(.failure(APIError.responseUnsuccessful))
-                    return
-                }
-                
-                guard let value = response.result.value,
-                    let json = JSON(value) as? JSON,
-                    let sourceJSON = json["sources"].array
-                else{
-                    completion(.failure(APIError.invalidData))
-                    return
-                }
-                let sources = sourceJSON.flatMap({ Source(json: $0) })
+                switch response.result{
+                case .success(let value):
+                    guard let json = JSON(rawValue: value) else {
+                        completion(.failure(APIError.jsonConversionFailure))
+                        return
+                    }
+                    
+                    guard let sourcesJSON = json["sources"].array else{
+                        completion(.failure(APIError.invalidData))
+                        return
+                    }
+                    
+                    let sources = sourcesJSON.flatMap({ Source(json: $0) })
+                    completion(.success(sources))
 
-                completion(.success(sources))
+                    break
+                case .failure(let error):
+                    completion(.failure(error))
+                    break
+                }
         }
     }
     
