@@ -121,7 +121,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
                 self?.endLoading()
                 self?.stopAnimating()
                 self?.setMessageForErrorView(errorMessage)
-                if let errorView = self?.errorView as? ErrorView{
+                if let errorView = self?.errorView as? CustomErrorView{
                     errorView.setMessage(errorMessage)
                 }
 //                let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
@@ -133,8 +133,8 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }
     
     func configurePlaceholderView(){
-        errorView = ErrorView(frame: view.frame)
-        if let errorView = errorView as? ErrorView {
+        errorView = CustomErrorView(frame: view.frame)
+        if let errorView = errorView as? CustomErrorView {
             errorView.retryButtonTapped = { [weak self] in
                 self?.startAnimating(self?.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
                 self?.viewModel?.getSource()
@@ -144,7 +144,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }
     
     func setMessageForErrorView(_ message: String){
-        if let errorView = errorView as? ErrorView{
+        if let errorView = errorView as? CustomErrorView {
             errorView.setMessage(message)
         }
     }

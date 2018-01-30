@@ -1,5 +1,5 @@
 //
-//  ErrorView.swift
+//  CustomErrorView.swift
 //  Newscover
 //
 //  Created by CODE-MAC1 on 11/20/17.
@@ -9,7 +9,7 @@
 import UIKit
 import Reusable
 
-class ErrorView: UIView, NibOwnerLoadable{
+class CustomErrorView: UIView, NibOwnerLoadable{
     
     @IBOutlet weak var messageLabel: UILabel!
     
