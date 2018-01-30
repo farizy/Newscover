@@ -14,4 +14,5 @@ target 'Newscover' do
     pod 'TRMosaicLayout'
     pod 'NVActivityIndicatorView'
     pod 'StatefulViewController'
+    pod 'XLPagerTabStrip'
 end

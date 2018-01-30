@@ -16,6 +16,7 @@ PODS:
   - StatefulViewController (3.0)
   - SwiftyJSON (3.1.4)
   - TRMosaicLayout (1.0.0)
+  - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - StatefulViewController
   - SwiftyJSON
   - TRMosaicLayout
+  - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -38,7 +40,8 @@ SPEC CHECKSUMS:
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TRMosaicLayout: 1875505c48dd2877afd69a8bea7b4c1c63afa5b5
+  XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 5dbe66ab8ffe1ded9097367efed1b9db2dc168ca
+PODFILE CHECKSUM: d713acb8d3cee9a14f1ca0628826a6aaa7bfb702
 
 COCOAPODS: 1.3.1
