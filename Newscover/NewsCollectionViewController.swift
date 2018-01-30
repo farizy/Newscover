@@ -108,9 +108,9 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in
-                self?.newsCollectionView.reloadData()
-                self?.endLoading()
                 self?.stopAnimating()
+                self?.endLoading()
+                self?.newsCollectionView.reloadData()
             })
             .addDisposableTo(disposeBag)
         
@@ -118,16 +118,12 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         .asObservable()
         .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] errorMessage in
-                self?.endLoading()
                 self?.stopAnimating()
+                self?.endLoading(animated: true, error: NSError(domain: errorMessage, code: -1), completion: nil)
                 self?.setMessageForErrorView(errorMessage)
                 if let errorView = self?.errorView as? CustomErrorView{
                     errorView.setMessage(errorMessage)
                 }
-//                let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
-//                let noAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-//                alert.addAction(noAction)
-//                self?.present(alert, animated: true, completion: nil)
         })
         .addDisposableTo(disposeBag)
     }
@@ -137,6 +133,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         if let errorView = errorView as? CustomErrorView {
             errorView.retryButtonTapped = { [weak self] in
                 self?.startAnimating(self?.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
+                self?.startLoading()
                 self?.viewModel?.getSource()
                 self?.collectionView?.reloadData()
             }
