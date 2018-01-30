@@ -10,10 +10,8 @@ target 'Newscover' do
 	pod 'AlamofireImage'
 	pod 'RxSwift'
 	pod 'RxCocoa'
-    pod 'RxAlamofire'
     pod 'Reusable'
     pod 'TRMosaicLayout'
     pod 'NVActivityIndicatorView'
     pod 'StatefulViewController'
-    pod 'DropDown'
 end
