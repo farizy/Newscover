@@ -12,13 +12,29 @@ import RxCocoa
 import RxSwift
 import NVActivityIndicatorView
 import StatefulViewController
+import XLPagerTabStrip
 
 private let reuseIdentifier = "TRMosaicCell"
 
+enum ChildCategory: String {
+    case all = "All"
+    case general = "General"
+    case business = "Business"
+    case entertaiment = "Entertainment"
+    case gaming = "Gaming"
+    case music = "Music"
+    case politics = "Politics"
+    case science = "Science"
+    case sport = "Sports"
+    case technology = "Technology"
+}
+
 class NewsCollectionViewController: UICollectionViewController, NVActivityIndicatorViewable {
 
-    fileprivate let viewModel = NewsCollectionViewModel()
+    var viewModel: NewsCollectionViewModel?
     fileprivate let disposeBag = DisposeBag()
+
+    var category: ChildCategory?
     
     let progressView = CGSize(width: 80, height: 80)
     
@@ -30,7 +46,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }()
     
     func handleRefresh(_ refreshControl: UIRefreshControl){
-        self.viewModel.getSource()
+        self.viewModel?.getSource()
         self.collectionView?.reloadData()
         refreshControl.endRefreshing()
     }
@@ -38,7 +54,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(cellType: NewsCollectionViewCell.self)
+        self.collectionView?.register(cellType: NewsCollectionViewCell.self)
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
         
@@ -46,12 +62,40 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         mosaicLayout.delegate = self
         
         self.collectionView?.addSubview(self.refreshControl)
-        viewModel.getSource()
+        
+        switch category {
+        case .some(.all):
+            viewModel = NewsCollectionViewModel()
+        case .some(.general):
+            viewModel = NewsCollectionViewModel(category: Category.general)
+        case .some(.business):
+            viewModel = NewsCollectionViewModel(category: Category.business)
+        case .some(.entertaiment):
+            viewModel = NewsCollectionViewModel(category: Category.entertaiment)
+        case .some(.gaming):
+            viewModel = NewsCollectionViewModel(category: Category.gaming)
+        case .some(.music):
+            viewModel = NewsCollectionViewModel(category: Category.music)
+        case .some(.politics):
+            viewModel = NewsCollectionViewModel(category: Category.politics)
+        case .some(.science):
+            viewModel = NewsCollectionViewModel(category: Category.science)
+        case .some(.sport):
+            viewModel = NewsCollectionViewModel(category: Category.sport)
+        case .some(.technology):
+            viewModel = NewsCollectionViewModel(category: Category.technology)
+        case .none:
+            break
+        }
+        
         configureViewModelObserver()
         configurePlaceholderView()
+        
+        viewModel?.getSource()
+        
         startLoading()
         startAnimating(self.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +104,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }
 
     func configureViewModelObserver(){
-        viewModel.sources
+        viewModel?.sources
             .asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[weak self] _ in
@@ -70,7 +114,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
             })
             .addDisposableTo(disposeBag)
         
-        viewModel.errorObserver
+        viewModel?.errorObserver
         .asObservable()
         .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] errorMessage in
@@ -93,7 +137,7 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
         if let errorView = errorView as? ErrorView {
             errorView.retryButtonTapped = { [weak self] in
                 self?.startAnimating(self?.progressView, message: "Loading",  type: .ballClipRotateMultiple, color: UIColor.black, backgroundColor: UIColor.clear, textColor: UIColor.black)
-                self?.viewModel.getSource()
+                self?.viewModel?.getSource()
                 self?.collectionView?.reloadData()
             }
         }
@@ -108,16 +152,16 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        let item = viewModel.sources.value.count
+        let item = viewModel?.sources.value.count
 
-        return item
+        return item ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as? NewsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let items = viewModel.sources.value
+        guard let items = viewModel?.sources.value else { return UICollectionViewCell() }
         let item = items[indexPath.row]
         cell.configureCell(source: item)
         
@@ -125,14 +169,13 @@ class NewsCollectionViewController: UICollectionViewController, NVActivityIndica
     }
 
    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let apapun = viewModel.sources.value
-        let itemApapun = apapun[indexPath.row]
-        let VM = GestureViewModel(source: itemApapun)
+        guard let source = viewModel?.sources.value[indexPath.row] else { return }
+        let VM = GestureViewModel(source: source)
     
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GestureViewControllerID") as? GestureViewController else { return }
         vc.viewModel = VM
         self.present(vc, animated: true, completion: nil)
-        print("Tapped \(viewModel.sources.value[indexPath.row].id)")
+        print("Tapped \(source.id)")
     }
 }
 
@@ -151,11 +194,17 @@ extension NewsCollectionViewController: TRMosaicLayoutDelegate{
     func heightForSmallMosaicCell() -> CGFloat {
         return 150
     }
-    
 }
 
 extension NewsCollectionViewController: StatefulViewController{
     func hasContent() -> Bool {
-        return viewModel.sources.value.count > 0
+        guard let count = viewModel?.sources.value.count else { return false }
+        return count > 0
+    }
+}
+
+extension NewsCollectionViewController: IndicatorInfoProvider{
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: category?.rawValue)
     }
 }

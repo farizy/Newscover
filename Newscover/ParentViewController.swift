@@ -41,15 +41,23 @@ class ParentViewController: ButtonBarPagerTabStripViewController {
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         guard
-            let child1 = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ChildViewControllerID") as? ChildViewController,
-            let child2 = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ChildViewControllerID") as? ChildViewController,
-            let child3 = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "ChildViewControllerID") as? ChildViewController
+            let all = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let general = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let sport = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let tech = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let enter = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let business = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController,
+            let science = UIStoryboard(name: "NewsStoryboard", bundle: nil).instantiateViewController(withIdentifier: "NewsCollectionViewControllerID") as? NewsCollectionViewController
         else { return [] }
         
-        child1.child = ChildVC.childOne
-        child2.child = ChildVC.childTwo
-        child3.child = ChildVC.childThree
+        all.category = ChildCategory.all
+        general.category = ChildCategory.general
+        sport.category = ChildCategory.sport
+        tech.category = ChildCategory.technology
+        enter.category = ChildCategory.entertaiment
+        business.category = ChildCategory.business
+        science.category = ChildCategory.science
         
-        return [child1, child2, child3]
+        return [all, general, sport, tech, enter, business, science]
     }
 }

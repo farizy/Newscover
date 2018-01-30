@@ -13,7 +13,7 @@
         <!--News Collection View Controller-->
         <scene sceneID="R5q-ly-4s3">
             <objects>
-                <collectionViewController id="xP5-8C-rqf" customClass="NewsCollectionViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="NewsCollectionViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xP5-8C-rqf" customClass="NewsCollectionViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rPe-Vi-KKI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,36 +115,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rub-Nc-KVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-315" y="616"/>
-        </scene>
-        <!--Child View Controller-->
-        <scene sceneID="Lh2-fU-NOd">
-            <objects>
-                <viewController storyboardIdentifier="ChildViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEJ-sq-Twy" customClass="ChildViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pxz-Sd-MmG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAGE 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ys-kt-qsK">
-                                <rect key="frame" x="160" y="323" width="54.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="4Ys-kt-qsK" firstAttribute="centerY" secondItem="pxz-Sd-MmG" secondAttribute="centerY" id="6Ju-ge-Pk6"/>
-                            <constraint firstItem="4Ys-kt-qsK" firstAttribute="centerX" secondItem="pxz-Sd-MmG" secondAttribute="centerX" id="DKE-E8-z4U"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="q7e-Yu-hkX"/>
-                    </view>
-                    <connections>
-                        <outlet property="pageLabel" destination="4Ys-kt-qsK" id="E7H-rv-wo6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sq6-oY-lt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="615" y="616"/>
         </scene>
     </scenes>
 </document>

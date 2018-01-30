@@ -11,7 +11,6 @@
 		2962E6FD1FB4036D007A20A8 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */; };
 		2962E7011FB45B75007A20A8 /* GestureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962E7001FB45B75007A20A8 /* GestureViewModel.swift */; };
 		29AE9699202024F50028AA99 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AE9698202024F50028AA99 /* ParentViewController.swift */; };
-		29AE969B20202C640028AA99 /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AE969A20202C640028AA99 /* ChildViewController.swift */; };
 		29F2CD281FB04A49004FB2FF /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD271FB04A49004FB2FF /* Article.swift */; };
 		29F2CD2A1FB04CAE004FB2FF /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD291FB04CAE004FB2FF /* Source.swift */; };
 		29F2CD2C1FB06249004FB2FF /* NewsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F2CD2B1FB06249004FB2FF /* NewsServices.swift */; };
@@ -37,7 +36,6 @@
 		2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		2962E7001FB45B75007A20A8 /* GestureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewModel.swift; sourceTree = "<group>"; };
 		29AE9698202024F50028AA99 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
-		29AE969A20202C640028AA99 /* ChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildViewController.swift; sourceTree = "<group>"; };
 		29F2CD271FB04A49004FB2FF /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		29F2CD291FB04CAE004FB2FF /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		29F2CD2B1FB06249004FB2FF /* NewsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServices.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 				2962E6FC1FB4036D007A20A8 /* GestureViewController.swift */,
 				29554CF6201ED815002613A0 /* WebViewController.swift */,
 				29AE9698202024F50028AA99 /* ParentViewController.swift */,
-				29AE969A20202C640028AA99 /* ChildViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -377,7 +374,6 @@
 				2FC494861FBAA07F007F2028 /* Screen.swift in Sources */,
 				2FA5588C1FB9A85000D89D10 /* NewsEndPoint.swift in Sources */,
 				2F0D09C31FB404B800B627B0 /* NewsCollectionViewCell.swift in Sources */,
-				29AE969B20202C640028AA99 /* ChildViewController.swift in Sources */,
 				29F2CD281FB04A49004FB2FF /* Article.swift in Sources */,
 				2FF9BFBB1FB2FD3500E9A467 /* NewsCollectionViewController.swift in Sources */,
 				2FF511001FB599A700BDCC57 /* UIViewExtension.swift in Sources */,
