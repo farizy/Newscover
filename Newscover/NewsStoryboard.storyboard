@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l4I-rQ-VdK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Ba-hB-zri">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,6 +66,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRr-Hz-EGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-298" y="-82"/>
+        </scene>
+        <!--Parent View Controller-->
+        <scene sceneID="ql1-te-MCW">
+            <objects>
+                <viewController id="2Ba-hB-zri" customClass="ParentViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RaS-0u-SCS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLV-Xt-5oA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW1-4n-VEA" customClass="ButtonBarView" customModule="XLPagerTabStrip">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rku-bK-Fbj"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NUU-ue-2O5">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KW1-4n-VEA" firstAttribute="leading" secondItem="nqc-eg-8Bk" secondAttribute="leading" id="1Gn-fS-4tr"/>
+                            <constraint firstItem="yLV-Xt-5oA" firstAttribute="leading" secondItem="nqc-eg-8Bk" secondAttribute="leading" id="2bH-sn-sgW"/>
+                            <constraint firstItem="yLV-Xt-5oA" firstAttribute="top" secondItem="KW1-4n-VEA" secondAttribute="bottom" id="7oi-sT-dzj"/>
+                            <constraint firstItem="nqc-eg-8Bk" firstAttribute="trailing" secondItem="KW1-4n-VEA" secondAttribute="trailing" id="FeK-dX-1gY"/>
+                            <constraint firstItem="KW1-4n-VEA" firstAttribute="trailing" secondItem="nqc-eg-8Bk" secondAttribute="trailing" id="NQt-BE-shg"/>
+                            <constraint firstItem="KW1-4n-VEA" firstAttribute="leading" secondItem="nqc-eg-8Bk" secondAttribute="leading" id="cIC-z8-yev"/>
+                            <constraint firstItem="KW1-4n-VEA" firstAttribute="top" secondItem="nqc-eg-8Bk" secondAttribute="top" id="coa-ag-siH"/>
+                            <constraint firstItem="nqc-eg-8Bk" firstAttribute="bottom" secondItem="yLV-Xt-5oA" secondAttribute="bottom" id="jxx-sh-VW0"/>
+                            <constraint firstItem="nqc-eg-8Bk" firstAttribute="trailing" secondItem="yLV-Xt-5oA" secondAttribute="trailing" id="yRH-OV-HPu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nqc-eg-8Bk"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonBarView" destination="KW1-4n-VEA" id="WlF-QM-EKe"/>
+                        <outlet property="containerView" destination="yLV-Xt-5oA" id="kVm-28-tH6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rub-Nc-KVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-315" y="616"/>
+        </scene>
+        <!--Child View Controller-->
+        <scene sceneID="Lh2-fU-NOd">
+            <objects>
+                <viewController storyboardIdentifier="ChildViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cEJ-sq-Twy" customClass="ChildViewController" customModule="Newscover" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pxz-Sd-MmG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAGE 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ys-kt-qsK">
+                                <rect key="frame" x="160" y="323" width="54.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4Ys-kt-qsK" firstAttribute="centerY" secondItem="pxz-Sd-MmG" secondAttribute="centerY" id="6Ju-ge-Pk6"/>
+                            <constraint firstItem="4Ys-kt-qsK" firstAttribute="centerX" secondItem="pxz-Sd-MmG" secondAttribute="centerX" id="DKE-E8-z4U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q7e-Yu-hkX"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageLabel" destination="4Ys-kt-qsK" id="E7H-rv-wo6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sq6-oY-lt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="616"/>
         </scene>
     </scenes>
 </document>
