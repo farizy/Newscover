@@ -20,6 +20,8 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var topViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var dissmissViewButton: UIButton!
     @IBOutlet weak var webViewContainer: UIView!
+    @IBOutlet weak var barProgressView: UIProgressView!
+
     var contentWebView: WKWebView = WKWebView()
 
     @IBOutlet weak var favoriteButton: UIButton!
@@ -135,6 +137,10 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         
 //        let request = URLRequest(url: article.url)
 //        contentWebView.load(request)
+        
+        guard let count = viewModel?.articles.value.count else { return }
+        barProgressView.progress = Float(index+1) / Float(count)
+        print("\(index) / \(count) = \(barProgressView.progress)")
     }
     
     func shadowedFont(){
@@ -168,6 +174,7 @@ class GestureViewController: UIViewController, NVActivityIndicatorViewable {
         if index < 0 { index = 0 }
 
         let article = viewModel.articles.value[index]
+
         self.setArticle(article: article)
     }
     
